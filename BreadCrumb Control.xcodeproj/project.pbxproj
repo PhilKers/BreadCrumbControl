@@ -18,8 +18,6 @@
 		D01F2E781C02667900967FDA /* BreadCrumb_ControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E771C02667900967FDA /* BreadCrumb_ControlUITests.swift */; };
 		D01F2E881C0268F500967FDA /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E861C0268F500967FDA /* BreadCrumb.swift */; };
 		D01F2E891C0268F500967FDA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E871C0268F500967FDA /* CustomButton.swift */; };
-		D01F2E911C02697600967FDA /* button_start.png in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E8D1C02697600967FDA /* button_start.png */; };
-		D01F2E921C02697600967FDA /* button_start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E8E1C02697600967FDA /* button_start@2x.png */; };
 		D091D2241C078CB800561376 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091D2231C078CB800561376 /* ColorPickerViewController.swift */; };
 		D091D2261C079C7400561376 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = D091D2251C079C7400561376 /* colorPalette.plist */; };
 /* End PBXBuildFile section */
@@ -59,8 +57,6 @@
 		D01F2E791C02667900967FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D01F2E861C0268F500967FDA /* BreadCrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreadCrumb.swift; path = "BreadCrumb Control/BreadCrumb.swift"; sourceTree = "<group>"; };
 		D01F2E871C0268F500967FDA /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = "BreadCrumb Control/CustomButton.swift"; sourceTree = "<group>"; };
-		D01F2E8D1C02697600967FDA /* button_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_start.png; path = "BreadCrumb Control/Resources/button_start.png"; sourceTree = "<group>"; };
-		D01F2E8E1C02697600967FDA /* button_start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_start@2x.png"; path = "BreadCrumb Control/Resources/button_start@2x.png"; sourceTree = "<group>"; };
 		D091D2231C078CB800561376 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		D091D2251C079C7400561376 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,8 +120,6 @@
 				D01F2E631C02667900967FDA /* Info.plist */,
 				D01F2E5B1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld */,
 				73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */,
-				D01F2E8D1C02697600967FDA /* button_start.png */,
-				D01F2E8E1C02697600967FDA /* button_start@2x.png */,
 			);
 			path = "BreadCrumb Control";
 			sourceTree = "<group>";
@@ -264,10 +258,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D01F2E921C02697600967FDA /* button_start@2x.png in Resources */,
 				D091D2261C079C7400561376 /* colorPalette.plist in Resources */,
 				D01F2E621C02667900967FDA /* LaunchScreen.storyboard in Resources */,
-				D01F2E911C02697600967FDA /* button_start.png in Resources */,
 				D01F2E5F1C02667900967FDA /* Assets.xcassets in Resources */,
 				73A694771E2C8936005B5F3B /* BreadCrumb.xcassets in Resources */,
 				D01F2E5A1C02667900967FDA /* Main.storyboard in Resources */,

@@ -174,7 +174,7 @@ public class CBreadcrumbControl: UIControl{
             self.addSubview( self.containerView)
         }
 
-        self.containerView.backgroundColor = backgroundBCColor  //UIColor.whiteColor()
+        self.containerView.backgroundColor = backgroundBCColor  //UIColor.white
         self.containerView.clipsToBounds = true
         if ((visibleRootButton) && (self.startButton != nil)) {
             self.startButton.backgroundColor = backgroundRootButtonColor
@@ -200,7 +200,7 @@ public class CBreadcrumbControl: UIControl{
     {
         let button: UIButton = UIButton(type: UIButtonType.custom) as UIButton
         button.backgroundColor = backgroundRootButtonColor
-        let bgImage : UIImage = UIImage( named: "button_start.png")!
+        let bgImage : UIImage = UIImage(named: "button_start", in:Bundle(for: type(of: self)), compatibleWith: nil)!
         button.setBackgroundImage( bgImage, for: UIControlState.normal)
         button.frame = CGRect(origin: CGPoint(x:0, y:0), size:CGSize(width:kStartButtonWidth+1, height:kBreadcrumbHeight))
         button.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
@@ -213,18 +213,20 @@ public class CBreadcrumbControl: UIControl{
         let button: BreadCrumbButton = BreadCrumbButton() as BreadCrumbButton
         if (self.style == .gradientFlatStyle) {
             button.styleButton = .extendButton
-            var rgbValueTmp = self.itemPrimaryColor.cgColor.components
-            let red = rgbValueTmp?[0]
-            let green = rgbValueTmp?[1]
-            let blue = rgbValueTmp?[2]
+            var red:CGFloat = 0, green:CGFloat = 0, blue:CGFloat = 0
+            var rgbValueTmp = self.itemPrimaryColor.getRed(&red, green: &green, blue: &blue, alpha: nil)
+//            var rgbValueTmp = self.itemPrimaryColor.cgColor.components
+//            let red = rgbValueTmp?[0]
+//            let green = rgbValueTmp?[1]
+//            let blue = rgbValueTmp?[1]
             //var rgbValue: Double = Double(rgbValueTmp)
             //var rgbValue = 0x777777
             //let rPrimary:CGFloat = CGFloat((rgbValue & 0xFF0000) >> 16)/255.0
             //let gPrimary:CGFloat = CGFloat((rgbValue & 0xFF00) >> 8)/255.0
             //let bPrimary:CGFloat = CGFloat((rgbValue & 0xFF))/255.0
-            let rPrimary:CGFloat = CGFloat(red! * 255.0)
-            let gPrimary:CGFloat = CGFloat(green! * 255.0)
-            let bPrimary:CGFloat = CGFloat(blue! * 255.0)
+            let rPrimary:CGFloat = CGFloat(red * 255.0)
+            let gPrimary:CGFloat = CGFloat(green * 255.0)
+            let bPrimary:CGFloat = CGFloat(blue * 255.0)
 
             
             let levelRedPrimaryColor: CGFloat = rPrimary + (self.offsetLastPrimaryColor * CGFloat(position))
