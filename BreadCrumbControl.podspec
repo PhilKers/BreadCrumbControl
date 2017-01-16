@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'BreadCrumb Control/BreadCrumb Control/*.swift'
-  s.resources = "BreadCrumb Control/BreadCrumb Control/**/*.{png}"
+  s.resources = "BreadCrumb Control/BreadCrumb.{xcassets}"
 end

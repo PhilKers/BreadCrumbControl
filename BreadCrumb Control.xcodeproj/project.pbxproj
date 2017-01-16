@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73A694771E2C8936005B5F3B /* BreadCrumb.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */; };
 		D01F2E551C02667900967FDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E541C02667900967FDA /* AppDelegate.swift */; };
 		D01F2E571C02667900967FDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E561C02667900967FDA /* ViewController.swift */; };
 		D01F2E5A1C02667900967FDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E581C02667900967FDA /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BreadCrumb.xcassets; sourceTree = "<group>"; };
 		D01F2E511C02667900967FDA /* BreadCrumb Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BreadCrumb Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01F2E541C02667900967FDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D01F2E561C02667900967FDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,9 @@
 				D01F2E601C02667900967FDA /* LaunchScreen.storyboard */,
 				D01F2E631C02667900967FDA /* Info.plist */,
 				D01F2E5B1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld */,
+				73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */,
+				D01F2E8D1C02697600967FDA /* button_start.png */,
+				D01F2E8E1C02697600967FDA /* button_start@2x.png */,
 			);
 			path = "BreadCrumb Control";
 			sourceTree = "<group>";
@@ -146,20 +151,10 @@
 		D01F2E851C02681900967FDA /* BreadCrumb Control */ = {
 			isa = PBXGroup;
 			children = (
-				D01F2E8A1C02695F00967FDA /* Resources */,
 				D01F2E861C0268F500967FDA /* BreadCrumb.swift */,
 				D01F2E871C0268F500967FDA /* CustomButton.swift */,
 			);
 			name = "BreadCrumb Control";
-			sourceTree = "<group>";
-		};
-		D01F2E8A1C02695F00967FDA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D01F2E8D1C02697600967FDA /* button_start.png */,
-				D01F2E8E1C02697600967FDA /* button_start@2x.png */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +269,7 @@
 				D01F2E621C02667900967FDA /* LaunchScreen.storyboard in Resources */,
 				D01F2E911C02697600967FDA /* button_start.png in Resources */,
 				D01F2E5F1C02667900967FDA /* Assets.xcassets in Resources */,
+				73A694771E2C8936005B5F3B /* BreadCrumb.xcassets in Resources */,
 				D01F2E5A1C02667900967FDA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
