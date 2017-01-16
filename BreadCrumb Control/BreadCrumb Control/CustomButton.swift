@@ -20,54 +20,54 @@ class MyCustomButton: UIButton {
 
     required init?(coder aDecoder: (NSCoder!)) {
         super.init(coder: aDecoder)!
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
     }
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
     }
     
     
     @IBInspectable var styleButton: StyleButton = .extendButton {
         didSet{
-            drawRect( self.frame)
+            draw( self.frame)
         }
     }
     
-    @IBInspectable var arrowColor: UIColor = UIColor.whiteColor() {
+    @IBInspectable var arrowColor: UIColor = UIColor.white {
         didSet{
-            drawRect( self.frame)
+            draw( self.frame)
         }
     }
     
-    @IBInspectable var backgroundCustomColor: UIColor = UIColor.grayColor() {
+    @IBInspectable var backgroundCustomColor: UIColor = UIColor.gray {
         didSet{
-            drawRect( self.frame)
+            draw( self.frame)
         }
     }
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(frame: CGRect)
+    override func draw(_ frame: CGRect)
     {
         if (styleButton == .extendButton) {
             //// Bezier Drawing
             let bezierPath = UIBezierPath()
-            bezierPath.moveToPoint(CGPointMake(frame.maxX - 10, frame.minY))
-            bezierPath.addLineToPoint(CGPointMake(frame.maxX, frame.minY + 0.50000 * frame.height))
-            bezierPath.addLineToPoint(CGPointMake(frame.maxX - 10, frame.maxY))
-            bezierPath.addLineToPoint(CGPointMake(frame.minX, frame.maxY))
-            bezierPath.addLineToPoint(CGPointMake(frame.minX, frame.minY))
-            bezierPath.addLineToPoint(CGPointMake(frame.maxX - 10, frame.minY))
-            bezierPath.closePath()
+            bezierPath.move(to: CGPoint(x: frame.maxX - 10, y: frame.minY))
+            bezierPath.addLine(to: CGPoint(x: frame.maxX, y: frame.minY + 0.50000 * frame.height))
+            bezierPath.addLine(to: CGPoint(x: frame.maxX - 10, y: frame.maxY))
+            bezierPath.addLine(to: CGPoint(x: frame.minX, y: frame.maxY))
+            bezierPath.addLine(to: CGPoint(x: frame.minX, y: frame.minY))
+            bezierPath.addLine(to: CGPoint(x: frame.maxX - 10, y: frame.minY))
+            bezierPath.close()
             //UIColor.lightGrayColor().setFill()
             self.backgroundCustomColor.setFill()
             bezierPath.fill()
         } else {
             //// Rectangle Drawing
-            let rectanglePath = UIBezierPath(rect: CGRectMake(frame.minX, frame.minY, frame.maxX, frame.maxY))
+            let rectanglePath = UIBezierPath(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.maxX, height: frame.maxY))
             self.backgroundCustomColor.setFill()
             rectanglePath.fill()
 
@@ -76,10 +76,10 @@ class MyCustomButton: UIButton {
             //bezier2Path.moveToPoint(CGPointMake(frame.minX + 0.95000 * frame.width, frame.minY + 5))
             //bezier2Path.addLineToPoint(CGPointMake(frame.maxX-2, frame.minY + 0.50000 * frame.height))
             //bezier2Path.addLineToPoint(CGPointMake(frame.minX + 0.95000 * frame.width, frame.maxY - 5))
-            bezier2Path.moveToPoint(CGPointMake(frame.maxX - 11 , frame.minY + 8))
-            bezier2Path.addLineToPoint(CGPointMake(frame.maxX - 2, frame.minY + 0.50000 * frame.height))
-            bezier2Path.addLineToPoint(CGPointMake(frame.maxX - 11, frame.maxY - 8))
-            bezier2Path.lineCapStyle = .Round;
+            bezier2Path.move(to: CGPoint(x: frame.maxX - 11 , y: frame.minY + 8))
+            bezier2Path.addLine(to: CGPoint(x: frame.maxX - 2, y: frame.minY + 0.50000 * frame.height))
+            bezier2Path.addLine(to: CGPoint(x: frame.maxX - 11, y: frame.maxY - 8))
+            bezier2Path.lineCapStyle = .round;
             
             self.arrowColor.setStroke()
             bezier2Path.lineWidth = 2

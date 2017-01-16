@@ -1,25 +1,49 @@
 # BreadCrumbControl
-BreadCrumb Control for IOS 9 (Swift)
+BreadCrumb Control for iOS written in Swift.
 
 ![sample](https://cloud.githubusercontent.com/assets/16086042/11485915/14c29ff4-97b6-11e5-9674-ff2c83a675e9.jpg)
 
-It's a breadCrumb, control for IOS writted in swift.
+The properties of "BreadCrumb" are fully accessible for the developer: color, animation, etc.
+This control is provided with a sample application that lets you change the properties of the control in real-time.
 
-The properties of "BreadCrumb" are fully accessible for the developer: color, animation etc ....
-This control is provided with a sample application that lets you change the properties of the control, in real time.
+
+# Compatiblity
+
+This control is compatible with iOS 8. Swift 3.0 compatible.
 
 
 # Installation in xcode project
 
-It is a very easy control to include in your project. You just add it to your project IOS, the two files: "BreadCrumb.swift" and "CustomButton.swift". Add also the following resources: "button_start.png" and "button_start@2x.png" if you want to add a "Root" button at the beginning of BreadCrumb.
+It is a very easy control to include in your project. 
+
+## Manually
+
+Add to your iOS project, the two files: `BreadCrumb.swift` and `CustomButton.swift`. Add also the following resources: `button_start.png` and `button_start@2x.png` if you want to add a "Root" button at the beginning of BreadCrumb.
+
+## CocoaPods
+
+[CocoaPods](http://cocoapods.org/) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate this into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'BreadCrumbControl', :git => 'https://github.com/apparition47/BreadCrumbControl'
+end
+```
 
 # Usage
 
 In order to use BreadCrumb control, you can instantiate it programmatically, or create a custom view in Interface Builder and assign it to an ivar of your app. Once you have an instance, you can use the control properties to configure it.
 
-# Compatiblity
-
-This control is compatible IOS 8 IOS 9. It is written in swift 2.0
 
 # Screenshots
 
