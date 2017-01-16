@@ -7,7 +7,7 @@ The properties of "BreadCrumb" are fully accessible for the developer: color, an
 This control is provided with a sample application that lets you change the properties of the control in real-time.
 
 
-# Compatiblity
+# Compatibility
 
 This control is compatible with iOS 8. Swift 3.0 compatible.
 
@@ -18,7 +18,7 @@ It is a very easy control to include in your project.
 
 ## Manually
 
-Add to your iOS project, the two files: `BreadCrumb.swift` and `CustomButton.swift`. Add also the following resources: `button_start.png` and `button_start@2x.png` if you want to add a "Root" button at the beginning of BreadCrumb.
+Add to your iOS project: `BreadCrumb.swift`, `CustomButton.swift`, `BreadCrumbs.xcassets`.
 
 ## CocoaPods
 
@@ -44,10 +44,20 @@ end
 
 In order to use BreadCrumb control, you can instantiate it programmatically, or create a custom view in Interface Builder and assign it to an ivar of your app. Once you have an instance, you can use the control properties to configure it.
 
+```swift
+import BreadCrumbControl // if using cocoapods
+
+class ViewController: UIViewController {
+	@IBOutlet weak var breadcrumbControl: CBreadcrumbControl!
+	override func viewDidLoad() {
+		self.breadcrumbView.itemsBreadCrumb = ["Config", "Alarm"]
+	}
+}
+```
+
 
 # Screenshots
 
-screenshots of the application sample:
 ![sampleapplication](https://cloud.githubusercontent.com/assets/16086042/11486079/09e7d904-97b7-11e5-9cd5-e0a7e4888bfe.jpg)
 
 # Credits
