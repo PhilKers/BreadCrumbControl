@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D01F2E551C02667900967FDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E541C02667900967FDA /* AppDelegate.swift */; };
+		D01F2E571C02667900967FDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E561C02667900967FDA /* ViewController.swift */; };
+		D01F2E5A1C02667900967FDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E581C02667900967FDA /* Main.storyboard */; };
+		D01F2E5D1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E5B1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld */; };
+		D01F2E5F1C02667900967FDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E5E1C02667900967FDA /* Assets.xcassets */; };
+		D01F2E621C02667900967FDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E601C02667900967FDA /* LaunchScreen.storyboard */; };
+		D01F2E6D1C02667900967FDA /* BreadCrumb_ControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E6C1C02667900967FDA /* BreadCrumb_ControlTests.swift */; };
+		D01F2E781C02667900967FDA /* BreadCrumb_ControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E771C02667900967FDA /* BreadCrumb_ControlUITests.swift */; };
+		D01F2E881C0268F500967FDA /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E861C0268F500967FDA /* BreadCrumb.swift */; };
+		D01F2E891C0268F500967FDA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E871C0268F500967FDA /* CustomButton.swift */; };
+		D01F2E911C02697600967FDA /* button_start.png in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E8D1C02697600967FDA /* button_start.png */; };
+		D01F2E921C02697600967FDA /* button_start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E8E1C02697600967FDA /* button_start@2x.png */; };
+		D091D2241C078CB800561376 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091D2231C078CB800561376 /* ColorPickerViewController.swift */; };
+		D091D2261C079C7400561376 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = D091D2251C079C7400561376 /* colorPalette.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D01F2E691C02667900967FDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D01F2E491C02667900967FDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D01F2E501C02667900967FDA;
+			remoteInfo = "BreadCrumb Control";
+		};
+		D01F2E741C02667900967FDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D01F2E491C02667900967FDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D01F2E501C02667900967FDA;
+			remoteInfo = "BreadCrumb Control";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D01F2E511C02667900967FDA /* BreadCrumb Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BreadCrumb Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D01F2E541C02667900967FDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D01F2E561C02667900967FDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D01F2E591C02667900967FDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D01F2E5C1C02667900967FDA /* BreadCrumb_Control.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreadCrumb_Control.xcdatamodel; sourceTree = "<group>"; };
+		D01F2E5E1C02667900967FDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D01F2E611C02667900967FDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D01F2E631C02667900967FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D01F2E681C02667900967FDA /* BreadCrumb ControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BreadCrumb ControlTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D01F2E6C1C02667900967FDA /* BreadCrumb_ControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadCrumb_ControlTests.swift; sourceTree = "<group>"; };
+		D01F2E6E1C02667900967FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D01F2E731C02667900967FDA /* BreadCrumb ControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BreadCrumb ControlUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D01F2E771C02667900967FDA /* BreadCrumb_ControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadCrumb_ControlUITests.swift; sourceTree = "<group>"; };
+		D01F2E791C02667900967FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D01F2E861C0268F500967FDA /* BreadCrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreadCrumb.swift; path = "BreadCrumb Control/BreadCrumb.swift"; sourceTree = "<group>"; };
+		D01F2E871C0268F500967FDA /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = "BreadCrumb Control/CustomButton.swift"; sourceTree = "<group>"; };
+		D01F2E8D1C02697600967FDA /* button_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_start.png; path = "BreadCrumb Control/Resources/button_start.png"; sourceTree = "<group>"; };
+		D01F2E8E1C02697600967FDA /* button_start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_start@2x.png"; path = "BreadCrumb Control/Resources/button_start@2x.png"; sourceTree = "<group>"; };
+		D091D2231C078CB800561376 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		D091D2251C079C7400561376 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D01F2E4E1C02667900967FDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01F2E651C02667900967FDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01F2E701C02667900967FDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D01F2E481C02667900967FDA = {
+			isa = PBXGroup;
+			children = (
+				D01F2E531C02667900967FDA /* BreadCrumb Control */,
+				D01F2E6B1C02667900967FDA /* BreadCrumb ControlTests */,
+				D01F2E761C02667900967FDA /* BreadCrumb ControlUITests */,
+				D01F2E521C02667900967FDA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D01F2E521C02667900967FDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D01F2E511C02667900967FDA /* BreadCrumb Control.app */,
+				D01F2E681C02667900967FDA /* BreadCrumb ControlTests.xctest */,
+				D01F2E731C02667900967FDA /* BreadCrumb ControlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D01F2E531C02667900967FDA /* BreadCrumb Control */ = {
+			isa = PBXGroup;
+			children = (
+				D091D2251C079C7400561376 /* colorPalette.plist */,
+				D091D2231C078CB800561376 /* ColorPickerViewController.swift */,
+				D01F2E851C02681900967FDA /* BreadCrumb Control */,
+				D01F2E541C02667900967FDA /* AppDelegate.swift */,
+				D01F2E561C02667900967FDA /* ViewController.swift */,
+				D01F2E581C02667900967FDA /* Main.storyboard */,
+				D01F2E5E1C02667900967FDA /* Assets.xcassets */,
+				D01F2E601C02667900967FDA /* LaunchScreen.storyboard */,
+				D01F2E631C02667900967FDA /* Info.plist */,
+				D01F2E5B1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld */,
+			);
+			path = "BreadCrumb Control";
+			sourceTree = "<group>";
+		};
+		D01F2E6B1C02667900967FDA /* BreadCrumb ControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				D01F2E6C1C02667900967FDA /* BreadCrumb_ControlTests.swift */,
+				D01F2E6E1C02667900967FDA /* Info.plist */,
+			);
+			path = "BreadCrumb ControlTests";
+			sourceTree = "<group>";
+		};
+		D01F2E761C02667900967FDA /* BreadCrumb ControlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D01F2E771C02667900967FDA /* BreadCrumb_ControlUITests.swift */,
+				D01F2E791C02667900967FDA /* Info.plist */,
+			);
+			path = "BreadCrumb ControlUITests";
+			sourceTree = "<group>";
+		};
+		D01F2E851C02681900967FDA /* BreadCrumb Control */ = {
+			isa = PBXGroup;
+			children = (
+				D01F2E8A1C02695F00967FDA /* Resources */,
+				D01F2E861C0268F500967FDA /* BreadCrumb.swift */,
+				D01F2E871C0268F500967FDA /* CustomButton.swift */,
+			);
+			name = "BreadCrumb Control";
+			sourceTree = "<group>";
+		};
+		D01F2E8A1C02695F00967FDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D01F2E8D1C02697600967FDA /* button_start.png */,
+				D01F2E8E1C02697600967FDA /* button_start@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D01F2E501C02667900967FDA /* BreadCrumb Control */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D01F2E7C1C02667900967FDA /* Build configuration list for PBXNativeTarget "BreadCrumb Control" */;
+			buildPhases = (
+				D01F2E4D1C02667900967FDA /* Sources */,
+				D01F2E4E1C02667900967FDA /* Frameworks */,
+				D01F2E4F1C02667900967FDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BreadCrumb Control";
+			productName = "BreadCrumb Control";
+			productReference = D01F2E511C02667900967FDA /* BreadCrumb Control.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D01F2E671C02667900967FDA /* BreadCrumb ControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D01F2E7F1C02667900967FDA /* Build configuration list for PBXNativeTarget "BreadCrumb ControlTests" */;
+			buildPhases = (
+				D01F2E641C02667900967FDA /* Sources */,
+				D01F2E651C02667900967FDA /* Frameworks */,
+				D01F2E661C02667900967FDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D01F2E6A1C02667900967FDA /* PBXTargetDependency */,
+			);
+			name = "BreadCrumb ControlTests";
+			productName = "BreadCrumb ControlTests";
+			productReference = D01F2E681C02667900967FDA /* BreadCrumb ControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D01F2E721C02667900967FDA /* BreadCrumb ControlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D01F2E821C02667900967FDA /* Build configuration list for PBXNativeTarget "BreadCrumb ControlUITests" */;
+			buildPhases = (
+				D01F2E6F1C02667900967FDA /* Sources */,
+				D01F2E701C02667900967FDA /* Frameworks */,
+				D01F2E711C02667900967FDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D01F2E751C02667900967FDA /* PBXTargetDependency */,
+			);
+			name = "BreadCrumb ControlUITests";
+			productName = "BreadCrumb ControlUITests";
+			productReference = D01F2E731C02667900967FDA /* BreadCrumb ControlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D01F2E491C02667900967FDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Philippe K";
+				TargetAttributes = {
+					D01F2E501C02667900967FDA = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					D01F2E671C02667900967FDA = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = D01F2E501C02667900967FDA;
+					};
+					D01F2E721C02667900967FDA = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = D01F2E501C02667900967FDA;
+					};
+				};
+			};
+			buildConfigurationList = D01F2E4C1C02667900967FDA /* Build configuration list for PBXProject "BreadCrumb Control" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D01F2E481C02667900967FDA;
+			productRefGroup = D01F2E521C02667900967FDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D01F2E501C02667900967FDA /* BreadCrumb Control */,
+				D01F2E671C02667900967FDA /* BreadCrumb ControlTests */,
+				D01F2E721C02667900967FDA /* BreadCrumb ControlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D01F2E4F1C02667900967FDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D01F2E921C02697600967FDA /* button_start@2x.png in Resources */,
+				D091D2261C079C7400561376 /* colorPalette.plist in Resources */,
+				D01F2E621C02667900967FDA /* LaunchScreen.storyboard in Resources */,
+				D01F2E911C02697600967FDA /* button_start.png in Resources */,
+				D01F2E5F1C02667900967FDA /* Assets.xcassets in Resources */,
+				D01F2E5A1C02667900967FDA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01F2E661C02667900967FDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01F2E711C02667900967FDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D01F2E4D1C02667900967FDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D01F2E571C02667900967FDA /* ViewController.swift in Sources */,
+				D01F2E551C02667900967FDA /* AppDelegate.swift in Sources */,
+				D091D2241C078CB800561376 /* ColorPickerViewController.swift in Sources */,
+				D01F2E881C0268F500967FDA /* BreadCrumb.swift in Sources */,
+				D01F2E5D1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld in Sources */,
+				D01F2E891C0268F500967FDA /* CustomButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01F2E641C02667900967FDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D01F2E6D1C02667900967FDA /* BreadCrumb_ControlTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01F2E6F1C02667900967FDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D01F2E781C02667900967FDA /* BreadCrumb_ControlUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D01F2E6A1C02667900967FDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D01F2E501C02667900967FDA /* BreadCrumb Control */;
+			targetProxy = D01F2E691C02667900967FDA /* PBXContainerItemProxy */;
+		};
+		D01F2E751C02667900967FDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D01F2E501C02667900967FDA /* BreadCrumb Control */;
+			targetProxy = D01F2E741C02667900967FDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D01F2E581C02667900967FDA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D01F2E591C02667900967FDA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D01F2E601C02667900967FDA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D01F2E611C02667900967FDA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D01F2E7A1C02667900967FDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D01F2E7B1C02667900967FDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D01F2E7D1C02667900967FDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "BreadCrumb Control/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-Control";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D01F2E7E1C02667900967FDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "BreadCrumb Control/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-Control";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D01F2E801C02667900967FDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "BreadCrumb ControlTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-ControlTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreadCrumb Control.app/BreadCrumb Control";
+			};
+			name = Debug;
+		};
+		D01F2E811C02667900967FDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "BreadCrumb ControlTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-ControlTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreadCrumb Control.app/BreadCrumb Control";
+			};
+			name = Release;
+		};
+		D01F2E831C02667900967FDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "BreadCrumb ControlUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-ControlUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "BreadCrumb Control";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D01F2E841C02667900967FDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "BreadCrumb ControlUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-ControlUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "BreadCrumb Control";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D01F2E4C1C02667900967FDA /* Build configuration list for PBXProject "BreadCrumb Control" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01F2E7A1C02667900967FDA /* Debug */,
+				D01F2E7B1C02667900967FDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D01F2E7C1C02667900967FDA /* Build configuration list for PBXNativeTarget "BreadCrumb Control" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01F2E7D1C02667900967FDA /* Debug */,
+				D01F2E7E1C02667900967FDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D01F2E7F1C02667900967FDA /* Build configuration list for PBXNativeTarget "BreadCrumb ControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01F2E801C02667900967FDA /* Debug */,
+				D01F2E811C02667900967FDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D01F2E821C02667900967FDA /* Build configuration list for PBXNativeTarget "BreadCrumb ControlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01F2E831C02667900967FDA /* Debug */,
+				D01F2E841C02667900967FDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D01F2E5B1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D01F2E5C1C02667900967FDA /* BreadCrumb_Control.xcdatamodel */,
+			);
+			currentVersion = D01F2E5C1C02667900967FDA /* BreadCrumb_Control.xcdatamodel */;
+			path = BreadCrumb_Control.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D01F2E491C02667900967FDA /* Project object */;
+}
