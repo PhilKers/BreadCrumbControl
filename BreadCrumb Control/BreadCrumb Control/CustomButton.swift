@@ -16,9 +16,9 @@ enum StyleButton {
 }
 
 
-class MyCustomButton: UIButton {
+open class BreadCrumbButton: UIButton {
 
-    required init?(coder aDecoder: (NSCoder!)) {
+    required public init?(coder aDecoder: (NSCoder!)) {
         super.init(coder: aDecoder)!
         self.backgroundColor = UIColor.clear
     }
@@ -36,13 +36,13 @@ class MyCustomButton: UIButton {
         }
     }
     
-    @IBInspectable var arrowColor: UIColor = UIColor.white {
+    @IBInspectable public var arrowColor: UIColor = UIColor.white {
         didSet{
             draw( self.frame)
         }
     }
     
-    @IBInspectable var backgroundCustomColor: UIColor = UIColor.gray {
+    @IBInspectable public var backgroundCustomColor: UIColor = UIColor.gray {
         didSet{
             draw( self.frame)
         }
@@ -50,7 +50,7 @@ class MyCustomButton: UIButton {
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func draw(_ frame: CGRect)
+    override open func draw(_ frame: CGRect)
     {
         if (styleButton == .extendButton) {
             //// Bezier Drawing

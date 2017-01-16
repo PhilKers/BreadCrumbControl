@@ -36,7 +36,8 @@ class EventItem {
 
 
 
-@IBDesignable class CBreadcrumbControl: UIControl{
+@IBDesignable
+public class CBreadcrumbControl: UIControl{
     
     
     var _items: [String] = []
@@ -76,45 +77,45 @@ class EventItem {
     }
     
     
-    @IBInspectable var textBCColor: UIColor = UIColor.black {
+    @IBInspectable public var textBCColor: UIColor = UIColor.black {
         didSet{
             initialSetup( refresh: true)
         }
     }
     
-    @IBInspectable var backgroundRootButtonColor: UIColor = UIColor.white {
+    @IBInspectable public var backgroundRootButtonColor: UIColor = UIColor.white {
         didSet{
             initialSetup( refresh: true)
         }
     }
     
-    @IBInspectable var backgroundBCColor: UIColor = UIColor.clear {
+    @IBInspectable public var backgroundBCColor: UIColor = UIColor.clear {
         didSet{
             initialSetup( refresh: true)
         }
     }
     
-    @IBInspectable var itemPrimaryColor: UIColor = UIColor.gray {
+    @IBInspectable public var itemPrimaryColor: UIColor = UIColor.gray {
         didSet{
             initialSetup( refresh: true)
         }
     }
     
-    @IBInspectable var offsetLastPrimaryColor: CGFloat = 16.0 {
-        didSet{
-            initialSetup( refresh: true)
-        }
-    }
-    
-    
-    @IBInspectable var animationSpeed: Double = 0.2 {
+    @IBInspectable public var offsetLastPrimaryColor: CGFloat = 16.0 {
         didSet{
             initialSetup( refresh: true)
         }
     }
     
     
-    @IBInspectable var arrowColor: UIColor = UIColor.blue {
+    @IBInspectable public var animationSpeed: Double = 0.2 {
+        didSet{
+            initialSetup( refresh: true)
+        }
+    }
+    
+    
+    @IBInspectable public var arrowColor: UIColor = UIColor.blue {
         didSet{
             //drawRect( self.frame)
             initialSetup( refresh: true)
@@ -122,7 +123,7 @@ class EventItem {
     }
 
     
-    @IBInspectable var itemsBreadCrumb: [String] = [] {
+    @IBInspectable public var itemsBreadCrumb: [String] = [] {
         didSet{
             if (!self.animationInProgress) {
                 self.itemClicked = ""
@@ -134,7 +135,7 @@ class EventItem {
         }
     }
     
-    @IBInspectable var iconSize: CGSize = CGSize(width:20, height:20){
+    @IBInspectable public var iconSize: CGSize = CGSize(width:20, height:20){
         didSet{
             //setNeedsDisplay()
             initialSetup( refresh: true)
@@ -143,7 +144,7 @@ class EventItem {
     
 
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         register()
         initialSetup( refresh: true)
@@ -207,9 +208,9 @@ class EventItem {
         return button
     }
     
-    func itemButton( item: String, position: Int) -> MyCustomButton
+    func itemButton( item: String, position: Int) -> BreadCrumbButton
     {
-        let button: MyCustomButton = MyCustomButton() as MyCustomButton
+        let button: BreadCrumbButton = BreadCrumbButton() as BreadCrumbButton
         if (self.style == .gradientFlatStyle) {
             button.styleButton = .extendButton
             var rgbValueTmp = self.itemPrimaryColor.cgColor.components
@@ -280,7 +281,7 @@ class EventItem {
         */
     }
 
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         
