@@ -31,7 +31,6 @@ $ gem install cocoapods
 To integrate this into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
@@ -64,4 +63,10 @@ class ViewController: UIViewController {
 
 For the sample application I use the control "ColorPickerView", created by Ethan Strider on 11/28/14. This control allowed me to easily change the colors in the sample application.
 
-The BreadCrumb and the sample application have been created by Philippe Kersalé
+The BreadCrumb and the sample application have been created by Philippe Kersalé.
+
+Root button icon is from the MIT-licensed [ionicons](http://ionicons.com).
+
+# License
+
+BSD
