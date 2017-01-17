@@ -55,8 +55,8 @@ public class CBreadcrumbControl: UIControl{
     private var itemsBCInWaiting: Bool = false
 
     // item selected
-    var itemClicked: String!
-    var itemPositionClicked: Int = -1
+    public var itemClicked: String!
+    public var itemPositionClicked: Int = -1
 
     func register() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedUINotificationNewItems), name:NSNotification.Name(rawValue: "NotificationNewItems"), object: nil)
@@ -70,7 +70,7 @@ public class CBreadcrumbControl: UIControl{
     }
     
     
-    @IBInspectable var visibleRootButton: Bool = true {
+    @IBInspectable public var visibleRootButton: Bool = true {
         didSet{
             initialSetup( refresh: true)
         }
