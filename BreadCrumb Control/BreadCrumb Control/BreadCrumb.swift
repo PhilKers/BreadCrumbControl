@@ -41,10 +41,10 @@ public class CBreadcrumbControl: UIControl{
     
     
     var _items: [String] = []
-    var _itemViews: [UIButton] = []
+    public var _itemViews: [UIButton] = []
 
-    var containerView: UIView!
-    var startButton: UIButton!
+    public var containerView: UIView!
+    public var startButton: UIButton!
     
     var color: UIColor = UIColor.blue
     private var _animating: Bool = false
