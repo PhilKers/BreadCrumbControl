@@ -49,7 +49,7 @@ public class CBreadcrumbControl: UIScrollView {
     weak var breadCrumbDelegate: BreadCrumbControlDelegate?
     
     var _items: [String] = []
-    var autoScrollEnabled = false
+    public var autoScrollEnabled = false
     public var _itemViews: [UIButton] = []
 
     public var containerView: UIView!
