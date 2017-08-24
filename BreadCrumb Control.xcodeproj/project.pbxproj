@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B3E70181F4EAD5B003ABE51 /* BreadCrumbControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */; };
-		2B3E701F1F4EAD5B003ABE51 /* BreadCrumbControl_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3E701E1F4EAD5B003ABE51 /* BreadCrumbControl_iOSTests.swift */; };
-		2B3E70211F4EAD5B003ABE51 /* BreadCrumbControl-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B3E70111F4EAD5A003ABE51 /* BreadCrumbControl-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B3E70241F4EAD5B003ABE51 /* BreadCrumbControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */; };
 		2B3E70251F4EAD5B003ABE51 /* BreadCrumbControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B3E702D1F4EAD9A003ABE51 /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E861C0268F500967FDA /* BreadCrumb.swift */; };
@@ -30,20 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2B3E70191F4EAD5B003ABE51 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D01F2E491C02667900967FDA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2B3E700E1F4EAD5A003ABE51;
-			remoteInfo = "BreadCrumbControl-iOS";
-		};
-		2B3E701B1F4EAD5B003ABE51 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D01F2E491C02667900967FDA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D01F2E501C02667900967FDA;
-			remoteInfo = "BreadCrumb Control";
-		};
 		2B3E70221F4EAD5B003ABE51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D01F2E491C02667900967FDA /* Project object */;
@@ -83,11 +66,7 @@
 
 /* Begin PBXFileReference section */
 		2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreadCrumbControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B3E70111F4EAD5A003ABE51 /* BreadCrumbControl-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BreadCrumbControl-iOS.h"; sourceTree = "<group>"; };
 		2B3E70121F4EAD5A003ABE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B3E70171F4EAD5B003ABE51 /* BreadCrumbControl-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BreadCrumbControl-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B3E701E1F4EAD5B003ABE51 /* BreadCrumbControl_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadCrumbControl_iOSTests.swift; sourceTree = "<group>"; };
-		2B3E70201F4EAD5B003ABE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BreadCrumb.xcassets; sourceTree = "<group>"; };
 		D01F2E511C02667900967FDA /* BreadCrumb Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BreadCrumb Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01F2E541C02667900967FDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,14 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2B3E70141F4EAD5B003ABE51 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2B3E70181F4EAD5B003ABE51 /* BreadCrumbControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,19 +124,9 @@
 		2B3E70101F4EAD5A003ABE51 /* BreadCrumbControl-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				2B3E70111F4EAD5A003ABE51 /* BreadCrumbControl-iOS.h */,
 				2B3E70121F4EAD5A003ABE51 /* Info.plist */,
 			);
 			path = "BreadCrumbControl-iOS";
-			sourceTree = "<group>";
-		};
-		2B3E701D1F4EAD5B003ABE51 /* BreadCrumbControl-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				2B3E701E1F4EAD5B003ABE51 /* BreadCrumbControl_iOSTests.swift */,
-				2B3E70201F4EAD5B003ABE51 /* Info.plist */,
-			);
-			path = "BreadCrumbControl-iOSTests";
 			sourceTree = "<group>";
 		};
 		D01F2E481C02667900967FDA = {
@@ -175,7 +136,6 @@
 				D01F2E6B1C02667900967FDA /* BreadCrumb ControlTests */,
 				D01F2E761C02667900967FDA /* BreadCrumb ControlUITests */,
 				2B3E70101F4EAD5A003ABE51 /* BreadCrumbControl-iOS */,
-				2B3E701D1F4EAD5B003ABE51 /* BreadCrumbControl-iOSTests */,
 				D01F2E521C02667900967FDA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,7 +147,6 @@
 				D01F2E681C02667900967FDA /* BreadCrumb ControlTests.xctest */,
 				D01F2E731C02667900967FDA /* BreadCrumb ControlUITests.xctest */,
 				2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */,
-				2B3E70171F4EAD5B003ABE51 /* BreadCrumbControl-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,7 +203,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B3E70211F4EAD5B003ABE51 /* BreadCrumbControl-iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,25 +226,6 @@
 			productName = "BreadCrumbControl-iOS";
 			productReference = 2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		2B3E70161F4EAD5B003ABE51 /* BreadCrumbControl-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2B3E702C1F4EAD5B003ABE51 /* Build configuration list for PBXNativeTarget "BreadCrumbControl-iOSTests" */;
-			buildPhases = (
-				2B3E70131F4EAD5B003ABE51 /* Sources */,
-				2B3E70141F4EAD5B003ABE51 /* Frameworks */,
-				2B3E70151F4EAD5B003ABE51 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2B3E701A1F4EAD5B003ABE51 /* PBXTargetDependency */,
-				2B3E701C1F4EAD5B003ABE51 /* PBXTargetDependency */,
-			);
-			name = "BreadCrumbControl-iOSTests";
-			productName = "BreadCrumbControl-iOSTests";
-			productReference = 2B3E70171F4EAD5B003ABE51 /* BreadCrumbControl-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D01F2E501C02667900967FDA /* BreadCrumb Control */ = {
 			isa = PBXNativeTarget;
@@ -357,11 +296,6 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
-					2B3E70161F4EAD5B003ABE51 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = D01F2E501C02667900967FDA;
-					};
 					D01F2E501C02667900967FDA = {
 						CreatedOnToolsVersion = 7.1.1;
 						LastSwiftMigration = 0820;
@@ -395,20 +329,12 @@
 				2B3E700E1F4EAD5A003ABE51 /* BreadCrumbControl-iOS */,
 				D01F2E671C02667900967FDA /* BreadCrumb ControlTests */,
 				D01F2E721C02667900967FDA /* BreadCrumb ControlUITests */,
-				2B3E70161F4EAD5B003ABE51 /* BreadCrumbControl-iOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2B3E700D1F4EAD5A003ABE51 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2B3E70151F4EAD5B003ABE51 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,14 +379,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2B3E70131F4EAD5B003ABE51 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2B3E701F1F4EAD5B003ABE51 /* BreadCrumbControl_iOSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D01F2E4D1C02667900967FDA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -493,16 +411,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2B3E701A1F4EAD5B003ABE51 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2B3E700E1F4EAD5A003ABE51 /* BreadCrumbControl-iOS */;
-			targetProxy = 2B3E70191F4EAD5B003ABE51 /* PBXContainerItemProxy */;
-		};
-		2B3E701C1F4EAD5B003ABE51 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D01F2E501C02667900967FDA /* BreadCrumb Control */;
-			targetProxy = 2B3E701B1F4EAD5B003ABE51 /* PBXContainerItemProxy */;
-		};
 		2B3E70231F4EAD5B003ABE51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2B3E700E1F4EAD5A003ABE51 /* BreadCrumbControl-iOS */;
@@ -590,41 +498,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		2B3E70281F4EAD5B003ABE51 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				INFOPLIST_FILE = "BreadCrumbControl-iOSTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rikusouda.BreadCrumbControl-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreadCrumb Control.app/BreadCrumb Control";
-			};
-			name = Debug;
-		};
-		2B3E70291F4EAD5B003ABE51 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				INFOPLIST_FILE = "BreadCrumbControl-iOSTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rikusouda.BreadCrumbControl-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreadCrumb Control.app/BreadCrumb Control";
 			};
 			name = Release;
 		};
@@ -804,14 +677,7 @@
 				2B3E70271F4EAD5B003ABE51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		2B3E702C1F4EAD5B003ABE51 /* Build configuration list for PBXNativeTarget "BreadCrumbControl-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2B3E70281F4EAD5B003ABE51 /* Debug */,
-				2B3E70291F4EAD5B003ABE51 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D01F2E4C1C02667900967FDA /* Build configuration list for PBXProject "BreadCrumb Control" */ = {
 			isa = XCConfigurationList;
