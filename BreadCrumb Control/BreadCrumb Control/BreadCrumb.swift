@@ -34,13 +34,22 @@ class EventItem {
     var itemsEvolution: [ItemEvolution]!
 }
 
+protocol BreadCrumbControlDelegate: class {
+    func buttonPressed(index: Int, item: String)
+}
+
+extension BreadCrumbControlDelegate {
+    func buttonPressed(index: Int, item: String) {
+    }
+}
 
 
 @IBDesignable
-public class CBreadcrumbControl: UIControl{
-    
+public class CBreadcrumbControl: UIScrollView {
+    weak var breadCrumbDelegate: BreadCrumbControlDelegate?
     
     var _items: [String] = []
+    var autoScrollEnabled = false
     public var _itemViews: [UIButton] = []
 
     public var containerView: UIView!
@@ -155,10 +164,16 @@ public class CBreadcrumbControl: UIControl{
         super.init(frame: frame)
         initialSetup( refresh: true)
     }
+    
+    override public func touchesShouldCancel(in view: UIView) -> Bool {
+        if view is UIButton {
+            return true
+        }
+        return false
+    }
 
     
     func initialSetup( refresh: Bool) {
-        
         var changeRoot: Int = 0
         if ((visibleRootButton) && (self.startButton == nil)) {
             self.startButton = self.startRootButton()
@@ -170,12 +185,13 @@ public class CBreadcrumbControl: UIControl{
             let rectContainerView: CGRect = CGRect(origin: CGPoint(x:kStartButtonWidth+1, y:0), size: CGSize(width: self.bounds.size.width - (kStartButtonWidth+1), height: kBreadcrumbHeight))
             self.containerView = UIView(frame:rectContainerView)
             self.containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.clipsToBounds = true
             
             self.addSubview( self.containerView)
         }
 
         self.containerView.backgroundColor = backgroundBCColor  //UIColor.white
-        self.containerView.clipsToBounds = true
+        
         if ((visibleRootButton) && (self.startButton != nil)) {
             self.startButton.backgroundColor = backgroundRootButtonColor
         }
@@ -192,7 +208,6 @@ public class CBreadcrumbControl: UIControl{
         }
         
         self.setItems( items: self.itemsBreadCrumb, refresh: refresh, containerView: self.containerView)
-            
     }
 
 
@@ -272,7 +287,7 @@ public class CBreadcrumbControl: UIControl{
                 }
             }
         }
-        self.sendActions( for: UIControlEvents.touchUpInside)
+        self.breadCrumbDelegate?.buttonPressed(index: self.itemPositionClicked, item: self.itemClicked)
         
         /*
         let alertView = UIAlertView();
@@ -282,7 +297,7 @@ public class CBreadcrumbControl: UIControl{
         alertView.show();
         */
     }
-
+    
     override open func layoutSubviews() {
         super.layoutSubviews()
         
@@ -387,8 +402,17 @@ public class CBreadcrumbControl: UIControl{
                     UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: {
                         self.sizeToFit()
                         self.singleLayoutSubviews( view: itemButton, offsetX: endPosition)
-                        } , completion: { finished in
+                        } , completion: { [unowned self] finished in
                             self._animating = false
+                            
+                            if itemsEvolutionToSend.count == 0 {
+                                var contentSize = self.contentSize
+                                contentSize.width = endPosition + widthButton + kBreadcrumbCover
+                                self.contentSize = contentSize
+                                if self.autoScrollEnabled {
+                                    self.setContentOffset(CGPoint(x: endPosition, y: 0), animated: true)
+                                }
+                            }
                             
                             if (itemsEvolution.count > 0) {
                                 let eventItem: EventItem = EventItem()
@@ -402,6 +426,13 @@ public class CBreadcrumbControl: UIControl{
                 } else {
                     self.sizeToFit()
                     self.singleLayoutSubviews( view: itemButton, offsetX: endPosition)
+                    
+                    if itemsEvolutionToSend.count == 0 {
+                        var contentSize = self.contentSize
+                        contentSize.width = endPosition + widthButton + kBreadcrumbCover
+                        self.contentSize = contentSize
+                    }
+                    
                     if (itemsEvolution.count > 0) {
                         processItem( itemsEvolution: itemsEvolutionToSend, refresh: true)
                     } else {
@@ -427,18 +458,26 @@ public class CBreadcrumbControl: UIControl{
                 rectUIButton.origin.x = startPosition;
                 lastViewShowing.frame = rectUIButton
                 
-                
                 if (!refresh) {
                     UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: {
                         self.sizeToFit()
                         self.singleLayoutSubviews( view: lastViewShowing, offsetX: endPosition)
-                        } , completion: { finished in
+                        } , completion: { [unowned self] finished in
                             self._animating = false
                             
                             lastViewShowing.removeFromSuperview()
                             self._itemViews.removeLast()
                             self._items.removeLast()
 
+                            
+                            if itemsEvolutionToSend.count == 0 {
+                                var contentSize = self.contentSize
+                                contentSize.width = startPosition + widthButton + kBreadcrumbCover + 500
+                                self.contentSize = contentSize
+                                if self.autoScrollEnabled {
+                                    self.setContentOffset(CGPoint(x: endPosition, y: 0), animated: true)
+                                }
+                            }
                             
                             if (itemsEvolution.count > 0) {
                                 let eventItem: EventItem = EventItem()
@@ -452,9 +491,17 @@ public class CBreadcrumbControl: UIControl{
                 } else {
                     self.sizeToFit()
                     self.singleLayoutSubviews( view: lastViewShowing, offsetX: endPosition)
+                    
                     lastViewShowing.removeFromSuperview()
                     self._itemViews.removeLast()
                     self._items.removeLast()
+                    
+                    if itemsEvolutionToSend.count == 0 {
+                        var contentSize = self.contentSize
+                        contentSize.width = startPosition + widthButton + kBreadcrumbCover + 500
+                        self.contentSize = contentSize
+                    }
+                    
                     if (itemsEvolution.count > 0) {
                         processItem( itemsEvolution: itemsEvolutionToSend, refresh: true)
                     } else {
