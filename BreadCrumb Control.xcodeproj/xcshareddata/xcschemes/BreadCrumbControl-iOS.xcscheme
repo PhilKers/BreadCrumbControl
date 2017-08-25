@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2B3E700E1F4EAD5A003ABE51"
-               BuildableName = "BreadCrumbControl-iOS.framework"
+               BuildableName = "BreadCrumbControl.framework"
                BlueprintName = "BreadCrumbControl-iOS"
                ReferencedContainer = "container:BreadCrumb Control.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2B3E700E1F4EAD5A003ABE51"
-            BuildableName = "BreadCrumbControl-iOS.framework"
+            BuildableName = "BreadCrumbControl.framework"
             BlueprintName = "BreadCrumbControl-iOS"
             ReferencedContainer = "container:BreadCrumb Control.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2B3E700E1F4EAD5A003ABE51"
-            BuildableName = "BreadCrumbControl-iOS.framework"
+            BuildableName = "BreadCrumbControl.framework"
             BlueprintName = "BreadCrumbControl-iOS"
             ReferencedContainer = "container:BreadCrumb Control.xcodeproj">
          </BuildableReference>

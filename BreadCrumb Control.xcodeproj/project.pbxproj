@@ -466,7 +466,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-Control";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-Control.framework";
 				PRODUCT_NAME = BreadCrumbControl;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -493,7 +493,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-Control";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-Control.framework";
 				PRODUCT_NAME = BreadCrumbControl;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
