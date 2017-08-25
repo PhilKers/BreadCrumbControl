@@ -141,6 +141,10 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
         breadCrumbControl.itemsBreadCrumb = ["Config","Alarm","Detector","Kitchen"]
     }
     
+    @IBAction func setConfigVeryLong(_ sender: Any) {
+        breadCrumbControl.itemsBreadCrumb = ["Config","Alarm","Detector","Kitchen","White color second refrigerator","Very tasty ale beer"]
+    }
+    
     @IBAction func setConsultation(_ sender: AnyObject) {
         breadCrumbControl.itemsBreadCrumb = ["Consultation"]
     }

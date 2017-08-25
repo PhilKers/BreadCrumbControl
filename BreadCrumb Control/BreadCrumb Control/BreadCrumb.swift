@@ -49,7 +49,6 @@ public class CBreadcrumbControl: UIScrollView {
     weak var breadCrumbDelegate: BreadCrumbControlDelegate?
     
     var _items: [String] = []
-    public var autoScrollEnabled = false
     public var _itemViews: [UIButton] = []
 
     public var containerView: UIView!
@@ -71,13 +70,13 @@ public class CBreadcrumbControl: UIScrollView {
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedUINotificationNewItems), name:NSNotification.Name(rawValue: "NotificationNewItems"), object: nil)
     }
     
+    @IBInspectable public var autoScrollEnabled = false
     
     @IBInspectable var style: StyleBreadCrumb = .gradientFlatStyle {
         didSet{
             initialSetup( refresh: true)
         }
     }
-    
     
     @IBInspectable public var visibleRootButton: Bool = true {
         didSet{
@@ -150,8 +149,6 @@ public class CBreadcrumbControl: UIScrollView {
             initialSetup( refresh: true)
         }
     }
-    
-
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
