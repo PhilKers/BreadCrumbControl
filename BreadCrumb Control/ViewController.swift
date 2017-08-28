@@ -40,6 +40,7 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
         buttonbackgroundRootButtonColor.setTitleColor(breadCrumbControl.backgroundRootButtonColor, for:UIControlState())
         buttonItemPrimaryColor.setTitleColor(breadCrumbControl.itemPrimaryColor, for:UIControlState())
 
+        breadCrumbControl.breadCrumbDelegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -140,6 +141,10 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
         breadCrumbControl.itemsBreadCrumb = ["Config","Alarm","Detector","Kitchen"]
     }
     
+    @IBAction func setConfigVeryLong(_ sender: Any) {
+        breadCrumbControl.itemsBreadCrumb = ["Config","Alarm","Detector","Kitchen","White color second refrigerator","Very tasty ale beer"]
+    }
+    
     @IBAction func setConsultation(_ sender: AnyObject) {
         breadCrumbControl.itemsBreadCrumb = ["Consultation"]
     }
@@ -147,21 +152,7 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
     @IBAction func setClear(_ sender: AnyObject) {
         breadCrumbControl.itemsBreadCrumb = []
     }
-    
-    @IBAction func itemSelectedByTouch(_ sender: AnyObject) {
-        let breadcrumbView: CBreadcrumbControl = sender as! CBreadcrumbControl
-        let selected: String = breadcrumbView.itemClicked
-        let indexSelected: Int = breadcrumbView.itemPositionClicked
-        let msgPosition: String = " (position=" + String(indexSelected) + ")"
-        
-        let alertView = UIAlertView();
-        alertView.addButton(withTitle: "Ok");
-        alertView.title = "item selected:";
-        var message: String = (selected == "") ? "Button Root" : selected
-        message += (selected == "") ? "" : msgPosition
-        alertView.message = message
-        alertView.show();
-    }
+
     @IBAction func setRootButtonVisible(_ sender: AnyObject) {
         let switchRootButton: UISwitch = sender as! UISwitch
         breadCrumbControl.visibleRootButton = switchRootButton.isOn
@@ -186,6 +177,20 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
         let newOffsetItemColor: CGFloat = CGFloat(offsetItemColor.value)
         breadCrumbControl.offsetLastPrimaryColor = newOffsetItemColor
         labelOffsetItemColor.text = "Offset Color:" + String(format:"%.1f", newOffsetItemColor)
+    }
+}
+
+extension UIViewController: BreadCrumbControlDelegate {
+    func buttonPressed(index: Int, item: String) {
+        let msgPosition: String = " (position=" + String(index) + ")"
+        
+        let alertView = UIAlertView();
+        alertView.addButton(withTitle: "Ok");
+        alertView.title = "item selected:";
+        var message: String = (item == "") ? "Button Root" : item
+        message += (item == "") ? "" : msgPosition
+        alertView.message = message
+        alertView.show();
     }
 }
 
