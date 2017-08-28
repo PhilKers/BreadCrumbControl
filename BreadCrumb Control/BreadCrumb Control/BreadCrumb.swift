@@ -226,7 +226,7 @@ public class CBreadcrumbControl: UIScrollView {
         if (self.style == .gradientFlatStyle) {
             button.styleButton = .extendButton
             var red:CGFloat = 0, green:CGFloat = 0, blue:CGFloat = 0
-            var rgbValueTmp = self.itemPrimaryColor.getRed(&red, green: &green, blue: &blue, alpha: nil)
+            _ = self.itemPrimaryColor.getRed(&red, green: &green, blue: &blue, alpha: nil)
 //            var rgbValueTmp = self.itemPrimaryColor.cgColor.components
 //            let red = rgbValueTmp?[0]
 //            let green = rgbValueTmp?[1]
@@ -284,15 +284,8 @@ public class CBreadcrumbControl: UIScrollView {
                 }
             }
         }
+
         self.breadCrumbDelegate?.buttonPressed(index: self.itemPositionClicked, item: self.itemClicked)
-        
-        /*
-        let alertView = UIAlertView();
-        alertView.addButtonWithTitle("Ok");
-        alertView.title = "title";
-        alertView.message = "message";
-        alertView.show();
-        */
     }
     
     override open func layoutSubviews() {
@@ -300,7 +293,7 @@ public class CBreadcrumbControl: UIScrollView {
         
         
         var cx: CGFloat = 0  //kStartButtonWidth
-        for var view: UIView in _itemViews
+        for view: UIView in _itemViews
         {
             let s: CGSize = view.bounds.size
             view.frame = CGRect(origin:CGPoint(x:cx, y:0), size:CGSize(width:s.width, height:s.height))

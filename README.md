@@ -1,6 +1,9 @@
 # BreadCrumbControl
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 BreadCrumb Control for iOS written in Swift.
 
+![animatedsample](https://user-images.githubusercontent.com/3298414/29718787-d5afe59c-89ee-11e7-8a03-88c92656265e.gif)
 ![sample](https://cloud.githubusercontent.com/assets/16086042/11485915/14c29ff4-97b6-11e5-9674-ff2c83a675e9.jpg)
 
 The properties of "BreadCrumb" are fully accessible for the developer: color, animation, etc.
@@ -14,7 +17,7 @@ This control is compatible with iOS 8. Swift 3.0 compatible.
 
 # Installation in xcode project
 
-It is a very easy control to include in your project. 
+It is a very easy control to include in your project.
 
 ## Manually
 
@@ -35,8 +38,17 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'BreadCrumbControl', :git => 'https://github.com/apparition47/BreadCrumbControl'
+    pod 'BreadCrumbControl'
 end
+```
+
+## Carthage
+
+BreadCrumbControl is [Carthage](https://github.com/Carthage/Carthage/) compatible.
+Add the following into your `Cartfile`, then run `carthage update`.
+
+```ruby
+github "apparition47/BreadCrumbControl"
 ```
 
 # Usage
