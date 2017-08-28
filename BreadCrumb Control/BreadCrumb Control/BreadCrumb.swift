@@ -70,7 +70,7 @@ public class CBreadcrumbControl: UIScrollView {
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedUINotificationNewItems), name:NSNotification.Name(rawValue: "NotificationNewItems"), object: nil)
     }
     
-    @IBInspectable public var autoScrollEnabled = false
+    @IBInspectable public var autoScrollEnabled: Bool = false
     
     @IBInspectable var style: StyleBreadCrumb = .gradientFlatStyle {
         didSet{
