@@ -47,22 +47,50 @@ end
 BreadCrumbControl is [Carthage](https://github.com/Carthage/Carthage/) compatible.
 Add the following into your `Cartfile`, then run `carthage update`.
 
-```ruby
+```
 github "apparition47/BreadCrumbControl"
 ```
 
 # Usage
 
 In order to use BreadCrumb control, you can instantiate it programmatically, or create a custom view in Interface Builder and assign it to an ivar of your app. Once you have an instance, you can use the control properties to configure it.
+See `ViewController.swift` for detail code.
 
 ```swift
-import BreadCrumbControl // if using cocoapods
+import BreadCrumbControl // if using CocoaPods or Carthage 
 
 class ViewController: UIViewController {
 	@IBOutlet weak var breadcrumbControl: CBreadcrumbControl!
 	override func viewDidLoad() {
+        self.breadcrumbView.delegate = self
+
+        self.breadcrumbView.buttonFont = UIFont.boldSystemFont(ofSize: 16)
+        self.breadcrumbView.style = .gradientFlatStyle
 		self.breadcrumbView.itemsBreadCrumb = ["Config", "Alarm"]
 	}
+}
+
+extension ViewController: BreadCrumbControlDelegate {
+    func buttonPressed(index: Int, item: String) {
+        var message = ""
+        if index < 0 {
+            // if index is under 0, unknown error
+            message = "unknown"
+        } else if index == 0 {
+            // if index is 0, root button is pressed
+            message = "Root button"
+        } else {
+            // in other case, item is button title
+            // index origin is "1", because Root button is 0.
+            message = "\(item) (position= \(index))"
+        }
+
+        let alertView = UIAlertView();
+        alertView.addButton(withTitle: "OK")
+        alertView.title = "item selected"
+        alertView.message = message
+        alertView.show()
+    }
 }
 ```
 

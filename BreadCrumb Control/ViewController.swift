@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , UIPopoverPresentationControllerDelegate{
+class ViewController: UIViewController{
 
     @IBOutlet weak var labelAnimation: UILabel!
     @IBOutlet weak var labelOffsetItemColor: UILabel!
@@ -24,31 +24,24 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
     
     @IBOutlet weak var buttonItemPrimaryColor: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        breadCrumbControl.animationSpeed = 0.2
+    fileprivate func setupInternalViews() {
         let animationSpeed: Double = breadCrumbControl.animationSpeed
         labelAnimation.text = "Animation:" + String(format:"%.1f", animationSpeed)
         
         let newOffsetItemColor: CGFloat = CGFloat(breadCrumbControl.offsetLastPrimaryColor)
         labelOffsetItemColor.text = "Offset Color:" + String(format:"%.1f", newOffsetItemColor)
-
+        
         buttonTitleColor.setTitleColor(breadCrumbControl.textBCColor, for:UIControlState())
         buttonArrowItemColor.setTitleColor(breadCrumbControl.arrowColor, for:UIControlState())
         buttonBreadCrumbBackgrounColor.setTitleColor(breadCrumbControl.backgroundBCColor, for:UIControlState())
         buttonbackgroundRootButtonColor.setTitleColor(breadCrumbControl.backgroundRootButtonColor, for:UIControlState())
         buttonItemPrimaryColor.setTitleColor(breadCrumbControl.itemPrimaryColor, for:UIControlState())
-
-        breadCrumbControl.breadCrumbDelegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        breadCrumbControl.visibleRootButton = false
-        breadCrumbControl.itemsBreadCrumb = []
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,27 +52,48 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
         // Return no adaptive presentation style, use default presentation behaviour
         return .none
     }
-    
+}
+
+// MARK: Initialize CBreadcrumbControl
+extension ViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // almost properties were set from Storyboard
+        
+        // Set delegate to handle touch inside on button
+        breadCrumbControl.breadCrumbDelegate = self
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        breadCrumbControl.buttonFont = UIFont.boldSystemFont(ofSize: 16)
+        breadCrumbControl.style = .gradientFlatStyle
+        
+        self.setupInternalViews()
+    }
+}
+
+// MARK: Set color
+extension ViewController: UIPopoverPresentationControllerDelegate {
     @IBAction func setBackgroundColorBreadCrumb(_ sender: UIButton) {
-        openColorPicker (sender, typeColor: "backgroundBreadCrumbColor")
+        openColorPicker(sender, typeColor: "backgroundBreadCrumbColor")
     }
     
     @IBAction func setTitleColor(_ sender: UIButton) {
-        openColorPicker (sender, typeColor: "titleColor")
+        openColorPicker(sender, typeColor: "titleColor")
     }
 
     @IBAction func setArrowItemColor(_ sender: UIButton) {
-        openColorPicker (sender, typeColor: "arrowItemColor")
+        openColorPicker(sender, typeColor: "arrowItemColor")
     }
 
     @IBAction func setBackgroundRootButtonColor(_ sender: UIButton) {
-        openColorPicker (sender, typeColor: "backgroundRootButtonColor")
+        openColorPicker(sender, typeColor: "backgroundRootButtonColor")
     }
     
     @IBAction func setItemPrimaryColor(_ sender: UIButton) {
-        openColorPicker (sender, typeColor: "backgroundItemPrimaryColor")
+        openColorPicker(sender, typeColor: "backgroundItemPrimaryColor")
     }
-    func openColorPicker (_ sender: UIButton, typeColor: String) {
+    func openColorPicker(_ sender: UIButton, typeColor: String) {
         let popoverVC = storyboard?.instantiateViewController(withIdentifier: "colorPickerPopover") as! ColorPickerViewController
         popoverVC.modalPresentationStyle = .popover
         popoverVC.preferredContentSize = CGSize(width: 284, height: 446)
@@ -94,8 +108,8 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
         present(popoverVC, animated: true, completion: nil)
     }
 
-    
-    func setButtonColor (_ color: UIColor, typeColor: String) {
+    // Called from ColorPickerViewController
+    func setButtonColor(_ color: UIColor, typeColor: String) {
         if (typeColor == "titleColor") {
             buttonTitleColor.setTitleColor(color, for:UIControlState())
             breadCrumbControl.textBCColor = color
@@ -116,10 +130,11 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
             buttonItemPrimaryColor.setTitleColor(color, for:UIControlState())
             breadCrumbControl.itemPrimaryColor = color
         }
-
     }
+}
 
-    
+// MARK: Update items
+extension ViewController {
     @IBAction func setConfig(_ sender: AnyObject) {
         breadCrumbControl.itemsBreadCrumb = ["Config"]
     }
@@ -152,7 +167,10 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
     @IBAction func setClear(_ sender: AnyObject) {
         breadCrumbControl.itemsBreadCrumb = []
     }
+}
 
+// MARK: other setting values
+extension ViewController {
     @IBAction func setRootButtonVisible(_ sender: AnyObject) {
         let switchRootButton: UISwitch = sender as! UISwitch
         breadCrumbControl.visibleRootButton = switchRootButton.isOn
@@ -169,7 +187,7 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
         let newTimeAnimation: Double = timeAnimation.value * 0.1
         breadCrumbControl.animationSpeed = newTimeAnimation
         labelAnimation.text = "Animation:" + String(format:"%.1f", newTimeAnimation)
-     }
+    }
     
     @IBAction func setOffsetItemColor(_ sender: AnyObject) {
         let offsetItemColor: UIStepper = sender as! UIStepper
@@ -180,17 +198,27 @@ class ViewController: UIViewController , UIPopoverPresentationControllerDelegate
     }
 }
 
-extension UIViewController: BreadCrumbControlDelegate {
+// MARK: BreadCrumbControlDelegate
+extension ViewController: BreadCrumbControlDelegate {
     func buttonPressed(index: Int, item: String) {
-        let msgPosition: String = " (position=" + String(index) + ")"
+        var message = ""
+        if index < 0 {
+            // if index is under 0, unknown error
+            message = "unknown"
+        } else if index == 0 {
+            // if index is 0, root button is pressed
+            message = "Root button"
+        } else {
+            // in other case, item is button title
+            // index origin is "1", because Root button is 0.
+            message = "\(item) (position= \(index))"
+        }
         
         let alertView = UIAlertView();
-        alertView.addButton(withTitle: "Ok");
-        alertView.title = "item selected:";
-        var message: String = (item == "") ? "Button Root" : item
-        message += (item == "") ? "" : msgPosition
+        alertView.addButton(withTitle: "OK")
+        alertView.title = "item selected"
         alertView.message = message
-        alertView.show();
+        alertView.show()
     }
 }
 
