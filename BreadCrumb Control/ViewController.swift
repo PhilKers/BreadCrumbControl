@@ -200,24 +200,18 @@ extension ViewController {
 
 // MARK: BreadCrumbControlDelegate
 extension ViewController: BreadCrumbControlDelegate {
-    func buttonPressed(index: Int, item: String) {
-        var message = ""
-        if index < 0 {
-            // if index is under 0, unknown error
-            message = "unknown"
-        } else if index == 0 {
-            // if index is 0, root button is pressed
-            message = "Root button"
-        } else {
-            // in other case, item is button title
-            // index origin is "1", because Root button is 0.
-            message = "\(item) (position= \(index))"
-        }
-        
+    func didTouchItem(index: Int, item: String) {
         let alertView = UIAlertView();
         alertView.addButton(withTitle: "OK")
-        alertView.title = "item selected"
-        alertView.message = message
+        alertView.title = "Item touched"
+        alertView.message = "\(item) (index= \(index))"
+        alertView.show()
+    }
+    
+    func didTouchRootButton() {
+        let alertView = UIAlertView();
+        alertView.addButton(withTitle: "OK")
+        alertView.title = "Root button touched"
         alertView.show()
     }
 }
