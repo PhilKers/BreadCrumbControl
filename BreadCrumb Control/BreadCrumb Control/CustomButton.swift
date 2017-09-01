@@ -9,12 +9,10 @@
 import Foundation
 import UIKit
 
-
 enum StyleButton {
     case simpleButton
     case extendButton
 }
-
 
 open class BreadCrumbButton: UIButton {
 
@@ -23,28 +21,26 @@ open class BreadCrumbButton: UIButton {
         self.backgroundColor = UIColor.clear
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
     }
     
-    
     @IBInspectable var styleButton: StyleButton = .extendButton {
-        didSet{
-            draw( self.frame)
+        didSet {
+            setNeedsDisplay()
         }
     }
     
     @IBInspectable public var arrowColor: UIColor = UIColor.white {
-        didSet{
-            draw( self.frame)
+        didSet {
+            setNeedsDisplay()
         }
     }
     
     @IBInspectable public var backgroundCustomColor: UIColor = UIColor.gray {
-        didSet{
-            draw( self.frame)
+        didSet {
+            setNeedsDisplay()
         }
     }
     
@@ -52,7 +48,8 @@ open class BreadCrumbButton: UIButton {
     // An empty implementation adversely affects performance during animation.
     override open func draw(_ frame: CGRect)
     {
-        if (styleButton == .extendButton) {
+        switch styleButton {
+        case .extendButton:
             //// Bezier Drawing
             let bezierPath = UIBezierPath()
             bezierPath.move(to: CGPoint(x: frame.maxX - 10, y: frame.minY))
@@ -65,12 +62,12 @@ open class BreadCrumbButton: UIButton {
             //UIColor.lightGrayColor().setFill()
             self.backgroundCustomColor.setFill()
             bezierPath.fill()
-        } else {
+        case .simpleButton:
             //// Rectangle Drawing
             let rectanglePath = UIBezierPath(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.maxX, height: frame.maxY))
             self.backgroundCustomColor.setFill()
             rectanglePath.fill()
-
+            
             //// Bezier 2 Drawing
             let bezier2Path = UIBezierPath()
             //bezier2Path.moveToPoint(CGPointMake(frame.minX + 0.95000 * frame.width, frame.minY + 5))
@@ -84,7 +81,6 @@ open class BreadCrumbButton: UIButton {
             self.arrowColor.setStroke()
             bezier2Path.lineWidth = 2
             bezier2Path.stroke()
-
         }
     }
 }

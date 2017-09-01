@@ -13,29 +13,24 @@ class ViewController: UIViewController{
     @IBOutlet weak var labelAnimation: UILabel!
     @IBOutlet weak var labelOffsetItemColor: UILabel!
     @IBOutlet weak var breadCrumbControl: CBreadcrumbControl!
-    
     @IBOutlet weak var buttonTitleColor: UIButton!
-    
     @IBOutlet weak var buttonBreadCrumbBackgrounColor: UIButton!
-    
     @IBOutlet weak var buttonArrowItemColor: UIButton!
-    
     @IBOutlet weak var buttonbackgroundRootButtonColor: UIButton!
-    
     @IBOutlet weak var buttonItemPrimaryColor: UIButton!
     
     fileprivate func setupInternalViews() {
-        let animationSpeed: Double = breadCrumbControl.animationSpeed
-        labelAnimation.text = "Animation:" + String(format:"%.1f", animationSpeed)
+        let animationSpeed = breadCrumbControl.animationSpeed
+        labelAnimation.text = "Animation:" + String(format: "%.1f", animationSpeed)
         
-        let newOffsetItemColor: CGFloat = CGFloat(breadCrumbControl.offsetLastPrimaryColor)
-        labelOffsetItemColor.text = "Offset Color:" + String(format:"%.1f", newOffsetItemColor)
+        let newOffsetItemColor = CGFloat(breadCrumbControl.offsetLastPrimaryColor)
+        labelOffsetItemColor.text = "Offset Color:" + String(format: "%.1f", newOffsetItemColor)
         
-        buttonTitleColor.setTitleColor(breadCrumbControl.textBCColor, for:UIControlState())
-        buttonArrowItemColor.setTitleColor(breadCrumbControl.arrowColor, for:UIControlState())
-        buttonBreadCrumbBackgrounColor.setTitleColor(breadCrumbControl.backgroundBCColor, for:UIControlState())
-        buttonbackgroundRootButtonColor.setTitleColor(breadCrumbControl.backgroundRootButtonColor, for:UIControlState())
-        buttonItemPrimaryColor.setTitleColor(breadCrumbControl.itemPrimaryColor, for:UIControlState())
+        buttonTitleColor.setTitleColor(breadCrumbControl.textBCColor, for: UIControlState())
+        buttonArrowItemColor.setTitleColor(breadCrumbControl.arrowColor, for: UIControlState())
+        buttonBreadCrumbBackgrounColor.setTitleColor(breadCrumbControl.backgroundBCColor, for: UIControlState())
+        buttonbackgroundRootButtonColor.setTitleColor(breadCrumbControl.backgroundRootButtonColor, for: UIControlState())
+        buttonItemPrimaryColor.setTitleColor(breadCrumbControl.itemPrimaryColor, for: UIControlState())
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,7 +88,8 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
     @IBAction func setItemPrimaryColor(_ sender: UIButton) {
         openColorPicker(sender, typeColor: "backgroundItemPrimaryColor")
     }
-    func openColorPicker(_ sender: UIButton, typeColor: String) {
+
+    private func openColorPicker(_ sender: UIButton, typeColor: String) {
         let popoverVC = storyboard?.instantiateViewController(withIdentifier: "colorPickerPopover") as! ColorPickerViewController
         popoverVC.modalPresentationStyle = .popover
         popoverVC.preferredContentSize = CGSize(width: 284, height: 446)
@@ -111,23 +107,23 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
     // Called from ColorPickerViewController
     func setButtonColor(_ color: UIColor, typeColor: String) {
         if (typeColor == "titleColor") {
-            buttonTitleColor.setTitleColor(color, for:UIControlState())
+            buttonTitleColor.setTitleColor(color, for: UIControlState())
             breadCrumbControl.textBCColor = color
         }
         else if (typeColor == "arrowItemColor") {
-            buttonArrowItemColor.setTitleColor(color, for:UIControlState())
+            buttonArrowItemColor.setTitleColor(color, for: UIControlState())
             breadCrumbControl.arrowColor = color
         }
         else if (typeColor == "backgroundBreadCrumbColor") {
-            buttonBreadCrumbBackgrounColor.setTitleColor(color, for:UIControlState())
+            buttonBreadCrumbBackgrounColor.setTitleColor(color, for: UIControlState())
             breadCrumbControl.backgroundBCColor = color
         }
         else if (typeColor == "backgroundRootButtonColor") {
-            buttonbackgroundRootButtonColor.setTitleColor(color, for:UIControlState())
+            buttonbackgroundRootButtonColor.setTitleColor(color, for: UIControlState())
             breadCrumbControl.backgroundRootButtonColor = color
         }
         else if (typeColor == "backgroundItemPrimaryColor") {
-            buttonItemPrimaryColor.setTitleColor(color, for:UIControlState())
+            buttonItemPrimaryColor.setTitleColor(color, for: UIControlState())
             breadCrumbControl.itemPrimaryColor = color
         }
     }
@@ -140,24 +136,31 @@ extension ViewController {
     }
 
     @IBAction func setConfigOutputRelay(_ sender: AnyObject) {
-        breadCrumbControl.itemsBreadCrumb = ["Config","Output","Relay"]
+        breadCrumbControl.itemsBreadCrumb = ["Config", "Output", "Relay"]
     }
     
     @IBAction func setConfigAlarm(_ sender: AnyObject) {
-        breadCrumbControl.itemsBreadCrumb = ["Config","Alarm"]
+        breadCrumbControl.itemsBreadCrumb = ["Config", "Alarm"]
     }
     
     @IBAction func setConfigAlarmDetector(_ sender: AnyObject) {
-        breadCrumbControl.itemsBreadCrumb = ["Config","Alarm","Detector"]
+        breadCrumbControl.itemsBreadCrumb = ["Config", "Alarm", "Detector"]
 
     }
     
     @IBAction func setConfigAlarmDetectorKitchen(_ sender: AnyObject) {
-        breadCrumbControl.itemsBreadCrumb = ["Config","Alarm","Detector","Kitchen"]
+        breadCrumbControl.itemsBreadCrumb = ["Config", "Alarm", "Detector", "Kitchen"]
     }
     
     @IBAction func setConfigVeryLong(_ sender: Any) {
-        breadCrumbControl.itemsBreadCrumb = ["Config","Alarm","Detector","Kitchen","White color second refrigerator","Very tasty ale beer"]
+        breadCrumbControl.itemsBreadCrumb = [
+            "Config",
+            "Alarm",
+            "Detector",
+            "Kitchen",
+            "White color second refrigerator",
+            "Very tasty ale beer"
+        ]
     }
     
     @IBAction func setConsultation(_ sender: AnyObject) {
@@ -172,29 +175,27 @@ extension ViewController {
 // MARK: other setting values
 extension ViewController {
     @IBAction func setRootButtonVisible(_ sender: AnyObject) {
-        let switchRootButton: UISwitch = sender as! UISwitch
+        let switchRootButton = sender as! UISwitch
         breadCrumbControl.visibleRootButton = switchRootButton.isOn
     }
     
     @IBAction func setGradientStyleChange(_ sender: AnyObject) {
-        let gradientStyle: UISwitch = sender as! UISwitch
-        breadCrumbControl.style = (gradientStyle.isOn) ? .gradientFlatStyle : .defaultFlatStyle
+        let gradientStyle = sender as! UISwitch
+        breadCrumbControl.style = gradientStyle.isOn ? .gradientFlatStyle : .defaultFlatStyle
     }
     
     @IBAction func setValueChanged(_ sender: AnyObject) {
-        let timeAnimation: UIStepper = sender as! UIStepper
-        //var animationSpeed: Double = breadCrumbControl.animationSpeed
-        let newTimeAnimation: Double = timeAnimation.value * 0.1
+        let timeAnimation = sender as! UIStepper
+        let newTimeAnimation = timeAnimation.value * 0.1
         breadCrumbControl.animationSpeed = newTimeAnimation
-        labelAnimation.text = "Animation:" + String(format:"%.1f", newTimeAnimation)
+        labelAnimation.text = "Animation:" + String(format: "%.1f", newTimeAnimation)
     }
     
     @IBAction func setOffsetItemColor(_ sender: AnyObject) {
-        let offsetItemColor: UIStepper = sender as! UIStepper
-        //var animationSpeed: Double = breadCrumbControl.animationSpeed
-        let newOffsetItemColor: CGFloat = CGFloat(offsetItemColor.value)
+        let offsetItemColor = sender as! UIStepper
+        let newOffsetItemColor = CGFloat(offsetItemColor.value)
         breadCrumbControl.offsetLastPrimaryColor = newOffsetItemColor
-        labelOffsetItemColor.text = "Offset Color:" + String(format:"%.1f", newOffsetItemColor)
+        labelOffsetItemColor.text = "Offset Color:" + String(format: "%.1f", newOffsetItemColor)
     }
 }
 
