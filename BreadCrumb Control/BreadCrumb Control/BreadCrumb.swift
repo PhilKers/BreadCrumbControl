@@ -160,6 +160,7 @@ public class CBreadcrumbControl: UIScrollView {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         register()
+        setupViews()
         initialSetup(refresh: true)
     }
     
@@ -167,6 +168,7 @@ public class CBreadcrumbControl: UIScrollView {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         register()
+        setupViews()
         initialSetup(refresh: true)
     }
     
@@ -177,6 +179,8 @@ public class CBreadcrumbControl: UIScrollView {
                                                object: nil)
     }
     
+    // MARK: - Internal methods
+    
     override public func touchesShouldCancel(in view: UIView) -> Bool {
         if view is UIButton {
             return true
@@ -184,22 +188,23 @@ public class CBreadcrumbControl: UIScrollView {
         return false
     }
     
+    private func setupViews() {
+        self.clipsToBounds = true
+        
+        let rectContainerView = CGRect(origin: CGPoint(x: kStartButtonWidth + 1, y: 0),
+                                       size: CGSize(width: self.bounds.size.width - (kStartButtonWidth + 1), height: self.frame.size.height))
+        let containerView = UIView(frame:rectContainerView)
+        containerView.autoresizingMask = [.flexibleWidth]
+        
+        self.addSubview(containerView)
+        self.containerView = containerView
+        self.contentSize = rectContainerView.size
+    }
+    
     func initialSetup(refresh: Bool) {
-        if self.containerView == nil {
-            let rectContainerView = CGRect(origin: CGPoint(x: kStartButtonWidth + 1, y: 0),
-                                           size: CGSize(width: self.bounds.size.width - (kStartButtonWidth + 1), height: self.frame.size.height))
-            let containerView = UIView(frame:rectContainerView)
-            containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            clipsToBounds = true
-            
-            self.addSubview(containerView)
-            
-            self.containerView = containerView
-        }
         guard let containerView = self.containerView else { return }
 
-        containerView.backgroundColor = backgroundBCColor
-        
+        self.backgroundColor = backgroundBCColor
         if visibleRootButton && self.startButton == nil {
             let startButton = self.startRootButton()
             self.startButton = startButton
@@ -219,7 +224,6 @@ public class CBreadcrumbControl: UIScrollView {
         }
         self.setItems(items: self.itemsBreadCrumb, refresh: refresh, containerView: containerView)
     }
-
 
     func startRootButton() -> UIButton
     {
@@ -412,11 +416,16 @@ public class CBreadcrumbControl: UIScrollView {
                     this._animating = false
                     
                     if itemsEvolutionToSend.count == 0 {
-                        var contentSize = this.contentSize
-                        contentSize.width = endPosition + widthButton + kBreadcrumbCover
+                        let contentWidth = this._itemViews.reduce(kBreadcrumbCover) { (width, button) in
+                            return width + button.frame.size.width - kBreadcrumbCover
+                        }
+                        let contentSize = CGSize(width: contentWidth, height: this.contentSize.height)
                         this.contentSize = contentSize
                         if this.autoScrollEnabled {
-                            this.setContentOffset(CGPoint(x: endPosition, y: 0), animated: true)
+                            this.setContentOffset(CGPoint(x: contentWidth - widthButton, y: 0), animated: true)
+                        }
+                        if let containerView = this.containerView {
+                            containerView.frame = CGRect(origin: containerView.frame.origin, size: contentSize)
                         }
                     }
                     
@@ -433,9 +442,14 @@ public class CBreadcrumbControl: UIScrollView {
                 self.singleLayoutSubviews( view: itemButton, offsetX: endPosition)
                 
                 if itemsEvolutionToSend.count == 0 {
-                    var contentSize = self.contentSize
-                    contentSize.width = endPosition + widthButton + kBreadcrumbCover
+                    let contentWidth = self._itemViews.reduce(kBreadcrumbCover) { (width, button) in
+                        return width + button.frame.size.width - kBreadcrumbCover
+                    }
+                    let contentSize = CGSize(width: contentWidth, height: self.contentSize.height)
                     self.contentSize = contentSize
+                    if let containerView = self.containerView {
+                        containerView.frame = CGRect(origin: containerView.frame.origin, size: contentSize)
+                    }
                 }
                 
                 if itemsEvolution.count > 0 {
@@ -478,11 +492,13 @@ public class CBreadcrumbControl: UIScrollView {
 
                     
                     if itemsEvolutionToSend.count == 0 {
-                        var contentSize = this.contentSize
-                        contentSize.width = startPosition + widthButton + kBreadcrumbCover + 500
+                        let contentWidth = this._itemViews.reduce(kBreadcrumbCover) { (width, button) in
+                            return width + button.frame.size.width - kBreadcrumbCover
+                        }
+                        let contentSize = CGSize(width: contentWidth, height: this.contentSize.height)
                         this.contentSize = contentSize
                         if this.autoScrollEnabled {
-                            this.setContentOffset(CGPoint(x: endPosition, y: 0), animated: true)
+                            this.setContentOffset(CGPoint(x: contentWidth - widthButton, y: 0), animated: true)
                         }
                     }
                     
@@ -503,9 +519,14 @@ public class CBreadcrumbControl: UIScrollView {
                 self._items.removeLast()
                 
                 if itemsEvolutionToSend.count == 0 {
-                    var contentSize = self.contentSize
-                    contentSize.width = startPosition + widthButton + kBreadcrumbCover + 500
+                    let contentWidth = self._itemViews.reduce(kBreadcrumbCover) { (width, button) in
+                        return width + button.frame.size.width - kBreadcrumbCover
+                    }
+                    let contentSize = CGSize(width: contentWidth, height: self.contentSize.height)
                     self.contentSize = contentSize
+                    if let containerView = self.containerView {
+                        containerView.frame = CGRect(origin: containerView.frame.origin, size: contentSize)
+                    }
                 }
                 
                 if itemsEvolution.count > 0 {
