@@ -141,7 +141,7 @@ public class CBreadcrumbControl: UIScrollView {
     
     // MARK: - Delegates
     
-    weak var breadCrumbDelegate: BreadCrumbControlDelegate?
+    public weak var breadCrumbDelegate: BreadCrumbControlDelegate?
     
     // MARK: Updating items
     
