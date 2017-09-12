@@ -27,6 +27,16 @@ private enum OperatorItem {
     case remove
 }
 
+private class ItemUpdatingContext {
+    init(items: [String], itemViews: [UIButton]) {
+        self.items = items
+        self.itemViews = itemViews
+    }
+    var items: [String]
+    var itemViews: [UIButton]
+    var evolutions: [ItemEvolution] = []
+}
+
 private class ItemEvolution {
     var itemLabel: String = ""
     var operationItem: OperatorItem = OperatorItem.add
@@ -39,10 +49,10 @@ private class ItemEvolution {
 }
 
 private class EventItem {
-    init(evolutions: [ItemEvolution]) {
-        itemsEvolution = evolutions
+    init(context: ItemUpdatingContext) {
+        self.context = context
     }
-    var itemsEvolution: [ItemEvolution]
+    var context: ItemUpdatingContext
 }
 
 @IBDesignable
@@ -61,7 +71,7 @@ public class CBreadcrumbControl: UIScrollView {
     private var animationInProgress: Bool = false
     
     // used if you send a new itemsBreadCrumb when "animationInProgress == true"
-    private var itemsBCInWaiting: Bool = false
+    private var itemsResisterQueue: [[String]] = []
     
     // MARK: - Customizable properties. (Available for Interface Builder)
     
@@ -148,9 +158,9 @@ public class CBreadcrumbControl: UIScrollView {
     @IBInspectable public var itemsBreadCrumb: [String] = [] {
         didSet{
             if !self.animationInProgress {
-                initialSetup(refresh: false)
+                initialSetup(refresh: false, newItems: self.itemsBreadCrumb)
             } else {
-                itemsBCInWaiting = true
+                itemsResisterQueue.append(self.itemsBreadCrumb)
             }
         }
     }
@@ -187,7 +197,7 @@ public class CBreadcrumbControl: UIScrollView {
         }
         return false
     }
-    
+
     private func setupViews() {
         self.clipsToBounds = true
         
@@ -201,7 +211,7 @@ public class CBreadcrumbControl: UIScrollView {
         self.contentSize = rectContainerView.size
     }
     
-    func initialSetup(refresh: Bool) {
+    func initialSetup(refresh: Bool, newItems: [String]? = nil) {
         guard let containerView = self.containerView else { return }
 
         self.backgroundColor = backgroundBCColor
@@ -222,7 +232,7 @@ public class CBreadcrumbControl: UIScrollView {
         if let startButton = self.startButton, visibleRootButton {
             startButton.backgroundColor = backgroundRootButtonColor
         }
-        self.setItems(items: self.itemsBreadCrumb, refresh: refresh, containerView: containerView)
+        self.setItems(items: newItems ?? self._items, refresh: refresh, containerView: containerView)
     }
 
     func startRootButton() -> UIButton
@@ -302,7 +312,7 @@ public class CBreadcrumbControl: UIScrollView {
             }
         }
     }
-    
+
     private static func addOffset(to view: UIView, offsetX: CGFloat) {
         let s = view.bounds.size
         view.frame = CGRect(origin: CGPoint(x: offsetX, y: 0), size: CGSize(width: s.width, height: s.height))
@@ -315,82 +325,85 @@ public class CBreadcrumbControl: UIScrollView {
             return
         }
         if !refresh {
-            var itemsEvolution = [ItemEvolution]()
+            let context = ItemUpdatingContext(items: _items, itemViews: _itemViews)
             // comparer with old items search the difference
             var endPosition: CGFloat = 0.0
             var idxToChange: Int = 0
-            for idx: Int in 0 ..< _items.count {
-                if idx < items.count && _items[idx] == items[idx] {
+            for idx: Int in 0 ..< context.items.count {
+                if idx < items.count && context.items[idx] == items[idx] {
                     idxToChange += 1
-                    endPosition += _itemViews[idx].frame.width
+                    endPosition += context.itemViews[idx].frame.width
                     continue
                 } else {
-                    endPosition -= _itemViews[idx].frame.width
-                    if itemsEvolution.count > idx {
-                    itemsEvolution.insert(ItemEvolution(itemLabel: items[idx], operationItem: OperatorItem.remove, offsetX: endPosition), at: idxToChange)
+                    endPosition -= context.itemViews[idx].frame.width
+                    if context.evolutions.count > idx {
+                    context.evolutions.insert(ItemEvolution(itemLabel: items[idx], operationItem: OperatorItem.remove, offsetX: endPosition), at: idxToChange)
                     } else {
-                        itemsEvolution.append(ItemEvolution(itemLabel: _items[idx], operationItem: OperatorItem.remove, offsetX: endPosition))
+                        context.evolutions.append(ItemEvolution(itemLabel: _items[idx], operationItem: OperatorItem.remove, offsetX: endPosition))
                     }
                 }
             }
             for idx: Int in idxToChange ..< items.count {
-                itemsEvolution.append(ItemEvolution( itemLabel: items[idx], operationItem: OperatorItem.add, offsetX: endPosition))
+                context.evolutions.append(ItemEvolution( itemLabel: items[idx], operationItem: OperatorItem.add, offsetX: endPosition))
             }
             
-            processItem( itemsEvolution: itemsEvolution, refresh: false)
+            processItem( context: context, refresh: false)
         } else {
             self.animationInProgress = false
  
-            var itemsEvolution = [ItemEvolution]()
+            let context = ItemUpdatingContext(items: _items, itemViews: _itemViews)
             // comparer with old items search the difference
             let endPosition: CGFloat = 0.0
-            for idx: Int in 0 ..< _items.count {
-                itemsEvolution.append( ItemEvolution( itemLabel: items[idx], operationItem: OperatorItem.remove, offsetX: endPosition))
+            for idx: Int in 0 ..< context.items.count {
+                context.evolutions.append(ItemEvolution(itemLabel: items[idx], operationItem: OperatorItem.remove, offsetX: endPosition))
             }
-            for idx: Int in 0 ..< _items.count {
-                itemsEvolution.append( ItemEvolution( itemLabel: items[idx], operationItem: OperatorItem.add, offsetX: endPosition))
+            for idx: Int in 0 ..< context.items.count {
+                context.evolutions.append(ItemEvolution(itemLabel: items[idx], operationItem: OperatorItem.add, offsetX: endPosition))
             }
-            processItem( itemsEvolution: itemsEvolution, refresh: true)
+            processItem(context: context, refresh: true)
         }
     }
     
-    private func processItem( itemsEvolution: [ItemEvolution], refresh: Bool) {
-        if itemsEvolution.count <= 0 {
+    private func processItem( context: ItemUpdatingContext, refresh: Bool) {
+        if context.evolutions.count <= 0 {
+            if !refresh {
+                for oldView in self._itemViews {
+                    if !context.itemViews.contains(oldView) {
+                        oldView.removeFromSuperview()
+                    }
+                }
+                self._items = context.items
+                self._itemViews = context.itemViews
+            }
             self.processIfItemsBreadCrumbInWaiting()  //self.animationInProgress = false
             return
         }
         
-        var itemsEvolutionToSend = [ItemEvolution]()
-        for idx: Int in 1 ..< itemsEvolution.count {
-            itemsEvolutionToSend.append(
-                ItemEvolution(itemLabel: itemsEvolution[idx].itemLabel,
-                              operationItem: itemsEvolution[idx].operationItem,
-                              offsetX: itemsEvolution[idx].offsetX)
-            )
-        }
+        let currentEvolution = context.evolutions[0]
+        context.evolutions.remove(at: 0)
         
         let frame = self.frame
-        
-        if itemsEvolution[0].operationItem == .add {
+
+        if currentEvolution.operationItem == .add {
             //create a new UIButton
             var startPosition: CGFloat = 0
             var endPosition: CGFloat = 0
-            if _itemViews.count > 0 {
-                let indexTmp = _itemViews.count - 1
-                let lastViewShowing: UIView = _itemViews[indexTmp]
+            if context.itemViews.count > 0 {
+                let indexTmp = context.itemViews.count - 1
+                let lastViewShowing: UIView = context.itemViews[indexTmp]
                 let rectLastViewShowing: CGRect = lastViewShowing.frame
                 endPosition = rectLastViewShowing.origin.x + rectLastViewShowing.size.width - kBreadcrumbCover
             }
-            let label = itemsEvolution[0].itemLabel
-            let itemButton = self.itemButton( item: label, position: _itemViews.count)
+            let label = currentEvolution.itemLabel
+            let itemButton = self.itemButton( item: label, position: context.itemViews.count)
             let widthButton = itemButton.frame.size.width
-            startPosition = (_itemViews.count > 0) ? endPosition - widthButton - kBreadcrumbCover : endPosition - widthButton
+            startPosition = (context.itemViews.count > 0) ? endPosition - widthButton - kBreadcrumbCover : endPosition - widthButton
             var rectUIButton = itemButton.frame
             rectUIButton.origin.x = startPosition;
             itemButton.frame = rectUIButton
             containerView?.insertSubview( itemButton, at: 0)
-            _itemViews.append(itemButton)
-            _items.append( label)
+            context.itemViews.append(itemButton)
+            context.items.append( label)
 
             if !refresh {
                 UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: { [weak self] in
@@ -400,11 +413,12 @@ public class CBreadcrumbControl: UIScrollView {
                     guard let this = self else { return }
                     this._animating = false
                     
-                    if itemsEvolutionToSend.count == 0 {
-                        let contentWidth = this._itemViews.reduce(kBreadcrumbCover) { (width, button) in
+                    if context.evolutions.count == 0 {
+                        let contentWidth = context.itemViews.reduce(kBreadcrumbCover) { (width, button) in
                             return width + button.frame.size.width - kBreadcrumbCover
                         }
                         let contentSize = CGSize(width: contentWidth, height: this.contentSize.height)
+
                         this.contentSize = contentSize
                         if this.autoScrollEnabled {
                             this.setContentOffset(CGPoint(x: max(0, contentWidth - frame.size.width), y: 0), animated: true)
@@ -414,19 +428,14 @@ public class CBreadcrumbControl: UIScrollView {
                         }
                     }
                     
-                    if itemsEvolution.count > 0 {
-                        let eventItem = EventItem(evolutions: itemsEvolutionToSend)
-                        
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationNewItems"), object: eventItem)
-                    } else {
-                        this.processIfItemsBreadCrumbInWaiting()  //self.animationInProgress = false
-                    }
+                    let eventItem = EventItem(context: context)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationNewItems"), object: eventItem)
                 })
             } else {
                 CBreadcrumbControl.addOffset(to: itemButton, offsetX: endPosition)
                 
-                if itemsEvolutionToSend.count == 0 {
-                    let contentWidth = self._itemViews.reduce(kBreadcrumbCover) { (width, button) in
+                if context.evolutions.count == 0 {
+                    let contentWidth = context.itemViews.reduce(kBreadcrumbCover) { (width, button) in
                         return width + button.frame.size.width - kBreadcrumbCover
                     }
                     let contentSize = CGSize(width: contentWidth, height: self.contentSize.height)
@@ -436,23 +445,19 @@ public class CBreadcrumbControl: UIScrollView {
                     }
                 }
                 
-                if itemsEvolution.count > 0 {
-                    processItem( itemsEvolution: itemsEvolutionToSend, refresh: true)
-                } else {
-                    self.processIfItemsBreadCrumbInWaiting()  //self.animationInProgress = false
-                }
+                processItem(context: context, refresh: true)
             }
-        } else if itemsEvolution[0].operationItem == .remove {
+        } else if currentEvolution.operationItem == .remove {
             
             //create a new UIButton
             var startPosition: CGFloat = 0
             var endPosition: CGFloat = 0
-            if _itemViews.count == 0 {
+            if context.itemViews.count == 0 {
                 return
             }
             
-            let indexTmp = _itemViews.count - 1
-            let lastViewShowing = _itemViews[indexTmp]
+            let indexTmp = context.itemViews.count - 1
+            let lastViewShowing = context.itemViews[indexTmp]
             let rectLastViewShowing = lastViewShowing.frame
             startPosition = rectLastViewShowing.origin.x
             let widthButton = lastViewShowing.frame.size.width
@@ -470,12 +475,11 @@ public class CBreadcrumbControl: UIScrollView {
                     this._animating = false
                     
                     lastViewShowing.removeFromSuperview()
-                    this._itemViews.removeLast()
-                    this._items.removeLast()
+                    context.itemViews.removeLast()
+                    context.items.removeLast()
 
-                    
-                    if itemsEvolutionToSend.count == 0 {
-                        let contentWidth = this._itemViews.reduce(kBreadcrumbCover) { (width, button) in
+                    if context.evolutions.count == 0 {
+                        let contentWidth = context.itemViews.reduce(kBreadcrumbCover) { (width, button) in
                             return width + button.frame.size.width - kBreadcrumbCover
                         }
                         let contentSize = CGSize(width: contentWidth, height: this.contentSize.height)
@@ -485,23 +489,19 @@ public class CBreadcrumbControl: UIScrollView {
                         }
                     }
                     
-                    if itemsEvolution.count > 0 {
-                        let eventItem = EventItem(evolutions: itemsEvolutionToSend)
-                        
+                        let eventItem = EventItem(context: context)
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationNewItems"), object: eventItem)
-                    } else {
-                        this.processIfItemsBreadCrumbInWaiting()  //self.animationInProgress = false
-                    }
+
                 })
             } else {
                 CBreadcrumbControl.addOffset(to: lastViewShowing, offsetX: endPosition)
                 
                 lastViewShowing.removeFromSuperview()
-                self._itemViews.removeLast()
-                self._items.removeLast()
+                context.itemViews.removeLast()
+                context.items.removeLast()
                 
-                if itemsEvolutionToSend.count == 0 {
-                    let contentWidth = self._itemViews.reduce(kBreadcrumbCover) { (width, button) in
+                if context.evolutions.count == 0 {
+                    let contentWidth = context.itemViews.reduce(kBreadcrumbCover) { (width, button) in
                         return width + button.frame.size.width - kBreadcrumbCover
                     }
                     let contentSize = CGSize(width: contentWidth, height: self.contentSize.height)
@@ -511,11 +511,7 @@ public class CBreadcrumbControl: UIScrollView {
                     }
                 }
                 
-                if itemsEvolution.count > 0 {
-                    processItem( itemsEvolution: itemsEvolutionToSend, refresh: true)
-                } else {
-                    self.processIfItemsBreadCrumbInWaiting()  //self.animationInProgress = false
-                }
+                processItem(context: context, refresh: true)
             }
 
         }
@@ -523,15 +519,16 @@ public class CBreadcrumbControl: UIScrollView {
     
     func receivedUINotificationNewItems(notification: NSNotification){
         if let eventItems = notification.object as? EventItem {
-            processItem(itemsEvolution: eventItems.itemsEvolution, refresh: false)
+            processItem(context: eventItems.context, refresh: false)
         }
     }
 
     func processIfItemsBreadCrumbInWaiting() {
         self.animationInProgress = false
-        if itemsBCInWaiting {
-            itemsBCInWaiting = false
-            initialSetup(refresh: false)
+        if itemsResisterQueue.count > 0 {
+            if let nextItems = itemsResisterQueue.popLast() {
+                initialSetup(refresh: false, newItems: nextItems)
+            }
         }
     }
 }
