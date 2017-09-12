@@ -1,9 +1,11 @@
 # BreadCrumbControl
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CocoaPods](https://img.shields.io/cocoapods/v/BreadCrumbControl.svg)]()
 
 BreadCrumb Control for iOS written in Swift.
 
 ![animatedsample](https://user-images.githubusercontent.com/3298414/29718787-d5afe59c-89ee-11e7-8a03-88c92656265e.gif)
+
 ![sample](https://cloud.githubusercontent.com/assets/16086042/11485915/14c29ff4-97b6-11e5-9674-ff2c83a675e9.jpg)
 
 The properties of "BreadCrumb" are fully accessible for the developer: color, animation, etc.
@@ -60,14 +62,14 @@ See `ViewController.swift` for detail code.
 import BreadCrumbControl // if using CocoaPods or Carthage 
 
 class ViewController: UIViewController {
-	@IBOutlet weak var breadcrumbControl: CBreadcrumbControl!
-	override func viewDidLoad() {
+    @IBOutlet weak var breadcrumbControl: CBreadcrumbControl!
+    override func viewDidLoad() {
         self.breadcrumbView.delegate = self
 
         self.breadcrumbView.buttonFont = UIFont.boldSystemFont(ofSize: 16)
         self.breadcrumbView.style = .gradientFlatStyle
-		self.breadcrumbView.itemsBreadCrumb = ["Config", "Alarm"]
-	}
+        self.breadcrumbView.itemsBreadCrumb = ["Config", "Alarm"]
+    }
 }
 
 extension ViewController: BreadCrumbControlDelegate {
@@ -95,11 +97,10 @@ extension ViewController: BreadCrumbControlDelegate {
 
 # Credits
 
-For the sample application I use the control "ColorPickerView", created by Ethan Strider on 11/28/14. This control allowed me to easily change the colors in the sample application.
-
-The BreadCrumb and the sample application have been created by Philippe Kersalé.
-
-Root button icon is from the MIT-licensed [ionicons](http://ionicons.com).
+* Original project and the sample application by [Philippe Kersalé](https://github.com/PhilKers).
+* [EthanStrider/ColorPickerExample](https://github.com/EthanStrider/ColorPickerExample) to easily change the colors in the sample application.
+* Root button icon is from the MIT-licensed [ionicons](http://ionicons.com).
+* [@rikusouda](https://github.com/rikusouda) for his contributions to this project.
 
 # License
 
