@@ -324,6 +324,7 @@ public class CBreadcrumbControl: UIScrollView {
         if self._animating {
             return
         }
+        
         if !refresh {
             let context = ItemUpdatingContext(items: _items, itemViews: _itemViews)
             // comparer with old items search the difference
@@ -381,6 +382,7 @@ public class CBreadcrumbControl: UIScrollView {
         context.evolutions.remove(at: 0)
         
         let frame = self.frame
+        let enabledAnimation = !refresh && (self.animationSpeed > 1e-15)
 
         if currentEvolution.operationItem == .add {
             //create a new UIButton
@@ -403,7 +405,7 @@ public class CBreadcrumbControl: UIScrollView {
             context.itemViews.append(itemButton)
             context.items.append( label)
 
-            if !refresh {
+            if enabledAnimation {
                 UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: { [weak self] in
                     guard let this = self else { return }
                     CBreadcrumbControl.addOffset(to: itemButton, offsetX: endPosition)
@@ -438,12 +440,15 @@ public class CBreadcrumbControl: UIScrollView {
                     }
                     let contentSize = CGSize(width: contentWidth, height: self.contentSize.height)
                     self.contentSize = contentSize
+                    if self.autoScrollEnabled && !refresh {
+                        self.setContentOffset(CGPoint(x: max(0, contentWidth - frame.size.width), y: 0), animated: true)
+                    }
                     if let containerView = self.containerView {
                         containerView.frame = CGRect(origin: containerView.frame.origin, size: contentSize)
                     }
                 }
                 
-                processItem(context: context, refresh: true)
+                processItem(context: context, refresh: refresh)
             }
         } else if currentEvolution.operationItem == .remove {
             
@@ -464,7 +469,7 @@ public class CBreadcrumbControl: UIScrollView {
             rectUIButton.origin.x = startPosition;
             lastViewShowing.frame = rectUIButton
             
-            if !refresh {
+            if enabledAnimation {
                 UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: { [weak self] in
                     guard let this = self else { return }
                     CBreadcrumbControl.addOffset(to: lastViewShowing, offsetX: endPosition)
@@ -487,8 +492,8 @@ public class CBreadcrumbControl: UIScrollView {
                         }
                     }
                     
-                        let eventItem = EventItem(context: context)
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationNewItems"), object: eventItem)
+                    let eventItem = EventItem(context: context)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationNewItems"), object: eventItem)
 
                 })
             } else {
@@ -504,12 +509,15 @@ public class CBreadcrumbControl: UIScrollView {
                     }
                     let contentSize = CGSize(width: contentWidth, height: self.contentSize.height)
                     self.contentSize = contentSize
+                    if self.autoScrollEnabled && !refresh {
+                        self.setContentOffset(CGPoint(x: max(0, contentWidth - frame.size.width), y: 0), animated: true)
+                    }
                     if let containerView = self.containerView {
                         containerView.frame = CGRect(origin: containerView.frame.origin, size: contentSize)
                     }
                 }
                 
-                processItem(context: context, refresh: true)
+                processItem(context: context, refresh: refresh)
             }
 
         }
