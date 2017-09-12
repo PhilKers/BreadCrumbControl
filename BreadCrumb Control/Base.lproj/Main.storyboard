@@ -99,7 +99,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="G7M-br-H4V">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="G7M-br-H4V">
                                         <rect key="frame" x="161" y="123" width="94" height="29"/>
                                         <connections>
                                             <action selector="setValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="CXw-5F-QIz"/>
