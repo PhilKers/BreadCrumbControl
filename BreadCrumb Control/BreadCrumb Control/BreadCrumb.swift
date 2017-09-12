@@ -303,26 +303,10 @@ public class CBreadcrumbControl: UIScrollView {
         }
     }
     
-    override open func layoutSubviews() {
-        super.layoutSubviews()
-        
-        var cx: CGFloat = 0  //kStartButtonWidth
-        for view: UIView in _itemViews {
-            let s = view.bounds.size
-            view.frame = CGRect(origin: CGPoint(x: cx, y: 0), size: CGSize(width: s.width, height: s.height))
-            cx += s.width
-        }
-        initialSetup(refresh: true)
-    }
-    
-    
-    func singleLayoutSubviews( view: UIView, offsetX: CGFloat) {
-        super.layoutSubviews()
-        
+    private static func addOffset(to view: UIView, offsetX: CGFloat) {
         let s = view.bounds.size
         view.frame = CGRect(origin: CGPoint(x: offsetX, y: 0), size: CGSize(width: s.width, height: s.height))
     }
-    
     
     func setItems(items: [String], refresh: Bool, containerView: UIView) {
         self.animationInProgress = true
@@ -385,6 +369,8 @@ public class CBreadcrumbControl: UIScrollView {
             )
         }
         
+        let frame = self.frame
+        
         if itemsEvolution[0].operationItem == .add {
             //create a new UIButton
             var startPosition: CGFloat = 0
@@ -409,8 +395,7 @@ public class CBreadcrumbControl: UIScrollView {
             if !refresh {
                 UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: { [weak self] in
                     guard let this = self else { return }
-                    this.sizeToFit()
-                    this.singleLayoutSubviews( view: itemButton, offsetX: endPosition)
+                    CBreadcrumbControl.addOffset(to: itemButton, offsetX: endPosition)
                 }, completion: { [weak self] finished in
                     guard let this = self else { return }
                     this._animating = false
@@ -422,7 +407,7 @@ public class CBreadcrumbControl: UIScrollView {
                         let contentSize = CGSize(width: contentWidth, height: this.contentSize.height)
                         this.contentSize = contentSize
                         if this.autoScrollEnabled {
-                            this.setContentOffset(CGPoint(x: contentWidth - widthButton, y: 0), animated: true)
+                            this.setContentOffset(CGPoint(x: max(0, contentWidth - frame.size.width), y: 0), animated: true)
                         }
                         if let containerView = this.containerView {
                             containerView.frame = CGRect(origin: containerView.frame.origin, size: contentSize)
@@ -438,8 +423,7 @@ public class CBreadcrumbControl: UIScrollView {
                     }
                 })
             } else {
-                self.sizeToFit()
-                self.singleLayoutSubviews( view: itemButton, offsetX: endPosition)
+                CBreadcrumbControl.addOffset(to: itemButton, offsetX: endPosition)
                 
                 if itemsEvolutionToSend.count == 0 {
                     let contentWidth = self._itemViews.reduce(kBreadcrumbCover) { (width, button) in
@@ -480,8 +464,7 @@ public class CBreadcrumbControl: UIScrollView {
             if !refresh {
                 UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: { [weak self] in
                     guard let this = self else { return }
-                    this.sizeToFit()
-                    this.singleLayoutSubviews( view: lastViewShowing, offsetX: endPosition)
+                    CBreadcrumbControl.addOffset(to: lastViewShowing, offsetX: endPosition)
                 }, completion: { [weak self] finished in
                     guard let this = self else { return }
                     this._animating = false
@@ -498,7 +481,7 @@ public class CBreadcrumbControl: UIScrollView {
                         let contentSize = CGSize(width: contentWidth, height: this.contentSize.height)
                         this.contentSize = contentSize
                         if this.autoScrollEnabled {
-                            this.setContentOffset(CGPoint(x: contentWidth - widthButton, y: 0), animated: true)
+                            this.setContentOffset(CGPoint(x: max(0, contentWidth - frame.size.width), y: 0), animated: true)
                         }
                     }
                     
@@ -511,8 +494,7 @@ public class CBreadcrumbControl: UIScrollView {
                     }
                 })
             } else {
-                self.sizeToFit()
-                self.singleLayoutSubviews(view: lastViewShowing, offsetX: endPosition)
+                CBreadcrumbControl.addOffset(to: lastViewShowing, offsetX: endPosition)
                 
                 lastViewShowing.removeFromSuperview()
                 self._itemViews.removeLast()
