@@ -366,15 +366,13 @@ public class CBreadcrumbControl: UIScrollView {
     
     private func processItem( context: ItemUpdatingContext, refresh: Bool) {
         if context.evolutions.count <= 0 {
-            if !refresh {
-                for oldView in self._itemViews {
-                    if !context.itemViews.contains(oldView) {
-                        oldView.removeFromSuperview()
-                    }
+            for oldView in self._itemViews {
+                if !context.itemViews.contains(oldView) {
+                    oldView.removeFromSuperview()
                 }
-                self._items = context.items
-                self._itemViews = context.itemViews
             }
+            self._items = context.items
+            self._itemViews = context.itemViews
             self.processIfItemsBreadCrumbInWaiting()  //self.animationInProgress = false
             return
         }
