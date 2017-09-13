@@ -44,6 +44,12 @@ open class BreadCrumbButton: UIButton {
         }
     }
     
+    public var isLast: Bool = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override open func draw(_ frame: CGRect)
@@ -68,19 +74,22 @@ open class BreadCrumbButton: UIButton {
             self.backgroundCustomColor.setFill()
             rectanglePath.fill()
             
-            //// Bezier 2 Drawing
-            let bezier2Path = UIBezierPath()
-            //bezier2Path.moveToPoint(CGPointMake(frame.minX + 0.95000 * frame.width, frame.minY + 5))
-            //bezier2Path.addLineToPoint(CGPointMake(frame.maxX-2, frame.minY + 0.50000 * frame.height))
-            //bezier2Path.addLineToPoint(CGPointMake(frame.minX + 0.95000 * frame.width, frame.maxY - 5))
-            bezier2Path.move(to: CGPoint(x: frame.maxX - 11 , y: frame.minY + 8))
-            bezier2Path.addLine(to: CGPoint(x: frame.maxX - 2, y: frame.minY + 0.50000 * frame.height))
-            bezier2Path.addLine(to: CGPoint(x: frame.maxX - 11, y: frame.maxY - 8))
-            bezier2Path.lineCapStyle = .round;
-            
-            self.arrowColor.setStroke()
-            bezier2Path.lineWidth = 2
-            bezier2Path.stroke()
+            // Last button's ">" is unnecessary.
+            if !isLast {
+                //// Bezier 2 Drawing
+                let bezier2Path = UIBezierPath()
+                //bezier2Path.moveToPoint(CGPointMake(frame.minX + 0.95000 * frame.width, frame.minY + 5))
+                //bezier2Path.addLineToPoint(CGPointMake(frame.maxX-2, frame.minY + 0.50000 * frame.height))
+                //bezier2Path.addLineToPoint(CGPointMake(frame.minX + 0.95000 * frame.width, frame.maxY - 5))
+                bezier2Path.move(to: CGPoint(x: frame.maxX - 11 , y: frame.minY + 8))
+                bezier2Path.addLine(to: CGPoint(x: frame.maxX - 2, y: frame.minY + 0.50000 * frame.height))
+                bezier2Path.addLine(to: CGPoint(x: frame.maxX - 11, y: frame.maxY - 8))
+                bezier2Path.lineCapStyle = .round;
+                
+                self.arrowColor.setStroke()
+                bezier2Path.lineWidth = 2
+                bezier2Path.stroke()
+            }
         }
     }
 }

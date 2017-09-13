@@ -382,7 +382,7 @@ public class CBreadcrumbControl: UIScrollView {
         context.evolutions.remove(at: 0)
         
         let frame = self.frame
-        let enabledAnimation = !refresh && (self.animationSpeed > 1e-15)
+        let enabledAnimation = !refresh && (self.animationSpeed > 0)
 
         if currentEvolution.operationItem == .add {
             //create a new UIButton
@@ -394,8 +394,18 @@ public class CBreadcrumbControl: UIScrollView {
                 let rectLastViewShowing: CGRect = lastViewShowing.frame
                 endPosition = rectLastViewShowing.origin.x + rectLastViewShowing.size.width - kBreadcrumbCover
             }
+
             let label = currentEvolution.itemLabel
             let itemButton = self.itemButton( item: label, position: context.itemViews.count)
+            if context.evolutions.count == 0 {
+                itemButton.isLast = true
+            }
+            if context.itemViews.count >= 1 {
+                if let button = context.itemViews[context.itemViews.count-1] as? BreadCrumbButton {
+                    button.isLast = false
+                }
+            }
+
             let widthButton = itemButton.frame.size.width
             startPosition = (context.itemViews.count > 0) ? endPosition - widthButton - kBreadcrumbCover : endPosition - widthButton
             var rectUIButton = itemButton.frame
@@ -406,8 +416,7 @@ public class CBreadcrumbControl: UIScrollView {
             context.items.append( label)
 
             if enabledAnimation {
-                UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: { [weak self] in
-                    guard let this = self else { return }
+                UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: {
                     CBreadcrumbControl.addOffset(to: itemButton, offsetX: endPosition)
                 }, completion: { [weak self] finished in
                     guard let this = self else { return }
@@ -470,8 +479,7 @@ public class CBreadcrumbControl: UIScrollView {
             lastViewShowing.frame = rectUIButton
             
             if enabledAnimation {
-                UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: { [weak self] in
-                    guard let this = self else { return }
+                UIView.animate( withDuration: self.animationSpeed, delay: 0, options:[.curveEaseInOut], animations: {
                     CBreadcrumbControl.addOffset(to: lastViewShowing, offsetX: endPosition)
                 }, completion: { [weak self] finished in
                     guard let this = self else { return }
@@ -481,6 +489,12 @@ public class CBreadcrumbControl: UIScrollView {
                     context.itemViews.removeLast()
                     context.items.removeLast()
 
+                    if context.itemViews.count >= 1 {
+                        if let button = context.itemViews[context.itemViews.count-1] as? BreadCrumbButton {
+                            button.isLast = true
+                        }
+                    }
+                    
                     if context.evolutions.count == 0 {
                         let contentWidth = context.itemViews.reduce(kBreadcrumbCover) { (width, button) in
                             return width + button.frame.size.width - kBreadcrumbCover
@@ -502,6 +516,12 @@ public class CBreadcrumbControl: UIScrollView {
                 lastViewShowing.removeFromSuperview()
                 context.itemViews.removeLast()
                 context.items.removeLast()
+                
+                if context.itemViews.count >= 1 {
+                    if let button = context.itemViews[context.itemViews.count-1] as? BreadCrumbButton {
+                        button.isLast = true
+                    }
+                }
                 
                 if context.evolutions.count == 0 {
                     let contentWidth = context.itemViews.reduce(kBreadcrumbCover) { (width, button) in
