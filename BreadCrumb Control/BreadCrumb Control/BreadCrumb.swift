@@ -302,7 +302,7 @@ public class CBreadcrumbControl: UIScrollView {
         return button
     }
     
-    func pressed(sender: UIButton!) {
+    @objc func pressed(sender: UIButton!) {
         if self.startButton != nil && self.startButton == sender {
             self.breadCrumbDelegate?.didTouchRootButton()
         } else {
@@ -543,7 +543,7 @@ public class CBreadcrumbControl: UIScrollView {
         }
     }
     
-    func receivedUINotificationNewItems(notification: NSNotification){
+    @objc func receivedUINotificationNewItems(notification: NSNotification){
         if let eventItems = notification.object as? EventItem {
             processItem(context: eventItems.context, refresh: false)
         }
