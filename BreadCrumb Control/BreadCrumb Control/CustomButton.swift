@@ -9,14 +9,13 @@
 import Foundation
 import UIKit
 
-enum StyleButton {
+@objc enum StyleButton: Int {
     case simpleButton
     case extendButton
 }
 
 open class BreadCrumbButton: UIButton {
-
-    required public init?(coder aDecoder: (NSCoder!)) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         self.backgroundColor = UIColor.clear
     }

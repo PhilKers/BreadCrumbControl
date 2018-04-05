@@ -14,7 +14,7 @@ This control is provided with a sample application that lets you change the prop
 
 # Compatibility
 
-This control is compatible with iOS 8. Swift 3.0 compatible.
+This control is compatible with iOS 8. Swift 4.1 compatible.
 
 
 # Installation in Xcode project
@@ -59,7 +59,7 @@ In order to use BreadCrumb control, you can instantiate it programmatically, or 
 See `ViewController.swift` for detail code.
 
 ```swift
-import BreadCrumbControl // if using CocoaPods or Carthage 
+import BreadCrumbControl // if using CocoaPods or Carthage
 
 class ViewController: UIViewController {
     @IBOutlet weak var breadcrumbControl: CBreadcrumbControl!

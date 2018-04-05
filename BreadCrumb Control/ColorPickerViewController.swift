@@ -38,12 +38,15 @@ class ColorPickerViewController: UIViewController, UICollectionViewDelegate, UIC
 	var delegate: ViewController? = nil
     var typeColor: String!
 
+    private let rowCount = 16
+    private let columnCount = 10
+    
 	// This function converts from HTML colors (hex strings of the form '#ffffff') to UIColors
 	func hexStringToUIColor (_ hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
+        var cString: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
 		
 		if (cString.hasPrefix("#")) {
-			cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
+            cString = String(cString[cString.index(cString.startIndex, offsetBy: 1)...])
 		}
 		
 /*		if (countElements(cString) != 6) {
@@ -64,12 +67,12 @@ class ColorPickerViewController: UIViewController, UICollectionViewDelegate, UIC
 	// UICollectionViewDataSource Protocol:
 	// Returns the number of rows in collection view
 	internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+		return columnCount
 	}
 	// UICollectionViewDataSource Protocol:
 	// Returns the number of columns in collection view
 	internal func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 16
+		return rowCount
 	}
 	// UICollectionViewDataSource Protocol:
 	// Inilitializes the collection view cells
@@ -77,7 +80,7 @@ class ColorPickerViewController: UIViewController, UICollectionViewDelegate, UIC
 		
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as UICollectionViewCell
 		cell.backgroundColor = UIColor.clear
-		cell.tag = tag + 1
+		cell.tag = indexPath.section * self.columnCount + indexPath.row
 		
 		return cell
 	}
