@@ -75,6 +75,8 @@ public class CBreadcrumbControl: UIScrollView {
     
     // MARK: - Customizable properties. (Available for Interface Builder)
     
+    @IBInspectable public var animateOnPress: Bool = false
+    
     @IBInspectable public var autoScrollEnabled: Bool = false
     
     @IBInspectable public var visibleRootButton: Bool = true {
@@ -303,6 +305,17 @@ public class CBreadcrumbControl: UIScrollView {
     }
     
     @objc func pressed(sender: UIButton!) {
+        if animateOnPress {
+            sender.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.2,
+                           initialSpringVelocity: 6.0,
+                           options: .allowUserInteraction,
+                           animations: { sender.transform = .identity },
+                           completion: nil)
+        }
+        
         if self.startButton != nil && self.startButton == sender {
             self.breadCrumbDelegate?.didTouchRootButton()
         } else {
