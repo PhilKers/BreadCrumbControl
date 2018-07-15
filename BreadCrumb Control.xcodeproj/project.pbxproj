@@ -12,17 +12,13 @@
 		2B3E702D1F4EAD9A003ABE51 /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E861C0268F500967FDA /* BreadCrumb.swift */; };
 		2B3E702E1F4EAD9D003ABE51 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E871C0268F500967FDA /* CustomButton.swift */; };
 		2B3E70331F4ED6B9003ABE51 /* BreadCrumb.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */; };
-		73A694771E2C8936005B5F3B /* BreadCrumb.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */; };
 		D01F2E551C02667900967FDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E541C02667900967FDA /* AppDelegate.swift */; };
 		D01F2E571C02667900967FDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E561C02667900967FDA /* ViewController.swift */; };
 		D01F2E5A1C02667900967FDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E581C02667900967FDA /* Main.storyboard */; };
-		D01F2E5D1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E5B1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld */; };
 		D01F2E5F1C02667900967FDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E5E1C02667900967FDA /* Assets.xcassets */; };
 		D01F2E621C02667900967FDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E601C02667900967FDA /* LaunchScreen.storyboard */; };
 		D01F2E6D1C02667900967FDA /* BreadCrumb_ControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E6C1C02667900967FDA /* BreadCrumb_ControlTests.swift */; };
 		D01F2E781C02667900967FDA /* BreadCrumb_ControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E771C02667900967FDA /* BreadCrumb_ControlUITests.swift */; };
-		D01F2E881C0268F500967FDA /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E861C0268F500967FDA /* BreadCrumb.swift */; };
-		D01F2E891C0268F500967FDA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E871C0268F500967FDA /* CustomButton.swift */; };
 		D091D2241C078CB800561376 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091D2231C078CB800561376 /* ColorPickerViewController.swift */; };
 		D091D2261C079C7400561376 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = D091D2251C079C7400561376 /* colorPalette.plist */; };
 /* End PBXBuildFile section */
@@ -73,7 +69,6 @@
 		D01F2E541C02667900967FDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D01F2E561C02667900967FDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D01F2E591C02667900967FDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D01F2E5C1C02667900967FDA /* BreadCrumb_Control.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreadCrumb_Control.xcdatamodel; sourceTree = "<group>"; };
 		D01F2E5E1C02667900967FDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D01F2E611C02667900967FDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D01F2E631C02667900967FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,8 +159,6 @@
 				D01F2E5E1C02667900967FDA /* Assets.xcassets */,
 				D01F2E601C02667900967FDA /* LaunchScreen.storyboard */,
 				D01F2E631C02667900967FDA /* Info.plist */,
-				D01F2E5B1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld */,
-				73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */,
 			);
 			path = "BreadCrumb Control";
 			sourceTree = "<group>";
@@ -193,6 +186,7 @@
 			children = (
 				D01F2E861C0268F500967FDA /* BreadCrumb.swift */,
 				D01F2E871C0268F500967FDA /* CustomButton.swift */,
+				73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */,
 			);
 			name = "BreadCrumb Control";
 			sourceTree = "<group>";
@@ -351,7 +345,6 @@
 				D091D2261C079C7400561376 /* colorPalette.plist in Resources */,
 				D01F2E621C02667900967FDA /* LaunchScreen.storyboard in Resources */,
 				D01F2E5F1C02667900967FDA /* Assets.xcassets in Resources */,
-				73A694771E2C8936005B5F3B /* BreadCrumb.xcassets in Resources */,
 				D01F2E5A1C02667900967FDA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,9 +382,6 @@
 				D01F2E571C02667900967FDA /* ViewController.swift in Sources */,
 				D01F2E551C02667900967FDA /* AppDelegate.swift in Sources */,
 				D091D2241C078CB800561376 /* ColorPickerViewController.swift in Sources */,
-				D01F2E881C0268F500967FDA /* BreadCrumb.swift in Sources */,
-				D01F2E5D1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld in Sources */,
-				D01F2E891C0268F500967FDA /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,19 +729,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D01F2E5B1C02667900967FDA /* BreadCrumb_Control.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D01F2E5C1C02667900967FDA /* BreadCrumb_Control.xcdatamodel */,
-			);
-			currentVersion = D01F2E5C1C02667900967FDA /* BreadCrumb_Control.xcdatamodel */;
-			path = BreadCrumb_Control.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D01F2E491C02667900967FDA /* Project object */;
 }
