@@ -289,7 +289,7 @@ public class CBreadcrumbControl: UIScrollView {
         button.titleLabel?.font = self.buttonFont
         button.setTitle(item, for: .normal)
         button.setTitleColor( textBCColor, for: .normal)
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         button.sizeToFit()
         let rectButton = button.frame

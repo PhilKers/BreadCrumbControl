@@ -27,11 +27,11 @@ class ViewController: UIViewController{
         let newOffsetItemColor = CGFloat(breadCrumbControl.offsetLastPrimaryColor)
         labelOffsetItemColor.text = "Offset Color:" + String(format: "%.1f", newOffsetItemColor)
         
-        buttonTitleColor.setTitleColor(breadCrumbControl.textBCColor, for: UIControlState())
-        buttonArrowItemColor.setTitleColor(breadCrumbControl.arrowColor, for: UIControlState())
-        buttonBreadCrumbBackgrounColor.setTitleColor(breadCrumbControl.backgroundBCColor, for: UIControlState())
-        buttonbackgroundRootButtonColor.setTitleColor(breadCrumbControl.backgroundRootButtonColor, for: UIControlState())
-        buttonItemPrimaryColor.setTitleColor(breadCrumbControl.itemPrimaryColor, for: UIControlState())
+        buttonTitleColor.setTitleColor(breadCrumbControl.textBCColor, for: UIControl.State())
+        buttonArrowItemColor.setTitleColor(breadCrumbControl.arrowColor, for: UIControl.State())
+        buttonBreadCrumbBackgrounColor.setTitleColor(breadCrumbControl.backgroundBCColor, for: UIControl.State())
+        buttonbackgroundRootButtonColor.setTitleColor(breadCrumbControl.backgroundRootButtonColor, for: UIControl.State())
+        buttonItemPrimaryColor.setTitleColor(breadCrumbControl.itemPrimaryColor, for: UIControl.State())
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -108,23 +108,23 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
     // Called from ColorPickerViewController
     func setButtonColor(_ color: UIColor, typeColor: String) {
         if (typeColor == "titleColor") {
-            buttonTitleColor.setTitleColor(color, for: UIControlState())
+            buttonTitleColor.setTitleColor(color, for: UIControl.State())
             breadCrumbControl.textBCColor = color
         }
         else if (typeColor == "arrowItemColor") {
-            buttonArrowItemColor.setTitleColor(color, for: UIControlState())
+            buttonArrowItemColor.setTitleColor(color, for: UIControl.State())
             breadCrumbControl.arrowColor = color
         }
         else if (typeColor == "backgroundBreadCrumbColor") {
-            buttonBreadCrumbBackgrounColor.setTitleColor(color, for: UIControlState())
+            buttonBreadCrumbBackgrounColor.setTitleColor(color, for: UIControl.State())
             breadCrumbControl.backgroundBCColor = color
         }
         else if (typeColor == "backgroundRootButtonColor") {
-            buttonbackgroundRootButtonColor.setTitleColor(color, for: UIControlState())
+            buttonbackgroundRootButtonColor.setTitleColor(color, for: UIControl.State())
             breadCrumbControl.backgroundRootButtonColor = color
         }
         else if (typeColor == "backgroundItemPrimaryColor") {
-            buttonItemPrimaryColor.setTitleColor(color, for: UIControlState())
+            buttonItemPrimaryColor.setTitleColor(color, for: UIControl.State())
             breadCrumbControl.itemPrimaryColor = color
         }
     }
