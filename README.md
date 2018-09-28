@@ -14,7 +14,7 @@ This control is provided with a sample application that lets you change the prop
 
 # Compatibility
 
-This control is compatible with iOS 8. Swift 4.1 compatible.
+This control is compatible with iOS 8. Swift 4.2 compatible.
 
 
 # Installation in Xcode project
