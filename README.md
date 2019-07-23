@@ -14,12 +14,10 @@ This control is provided with a sample application that lets you change the prop
 
 # Compatibility
 
-This control is compatible with iOS 8. Swift 4.2 compatible.
+This control is compatible with iOS 10. Swift 5 compatible. Use [0.1.1](https://github.com/apparition47/BreadCrumbControl/releases/tag/0.1.1) for iOS 8/Swift 4 support.
 
 
 # Installation in Xcode project
-
-It is a very easy control to include in your project.
 
 ## Manually
 
@@ -36,7 +34,7 @@ $ gem install cocoapods
 To integrate this into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
