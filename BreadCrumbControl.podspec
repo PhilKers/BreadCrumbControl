@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'BreadCrumbControl'
   s.version = '0.2.0'
+  s.swift_versions = ['5.0']
   s.license = 'BSD'
   s.summary = 'BreadCrumb Control (Swift)'
   s.homepage = 'https://github.com/apparition47/BreadCrumbControl'
