@@ -320,7 +320,7 @@ public class CBreadcrumbControl: UIScrollView {
             self.breadCrumbDelegate?.didTouchRootButton()
         } else {
             if let clickedButtonTitle = sender.titleLabel?.text,
-                let index = self._items.index(of: clickedButtonTitle) {
+                let index = self._items.firstIndex(of: clickedButtonTitle) {
                 self.breadCrumbDelegate?.didTouchItem(index: index, item: clickedButtonTitle)
             }
         }
