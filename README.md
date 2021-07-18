@@ -14,14 +14,14 @@ This control is provided with a sample application that lets you change the prop
 
 # Compatibility
 
-This control is compatible with iOS 10. Swift 5 compatible. Use [0.1.1](https://github.com/apparition47/BreadCrumbControl/releases/tag/0.1.1) for iOS 8/Swift 4 support.
+This module is compatible with iOS 10 and up.
 
 
 # Installation in Xcode project
 
 ## Manually
 
-Add to your iOS project: `BreadCrumb.swift`, `CustomButton.swift`, `BreadCrumbs.xcassets`.
+Add the `/Sources/BreadCrumbControl/` dir to your iOS project.
 
 ## CocoaPods
 
@@ -50,6 +50,11 @@ Add the following into your `Cartfile`, then run `carthage update`.
 ```
 github "apparition47/BreadCrumbControl"
 ```
+
+## Swift Package Manager
+
+Add `https://github.com/apparition47/BreadCrumbControl.git` to your project. Recommended adding with `Version` with `up to next major`.
+
 
 # Usage
 
@@ -102,4 +107,4 @@ extension ViewController: BreadCrumbControlDelegate {
 
 # License
 
-BSD
+BSD-3

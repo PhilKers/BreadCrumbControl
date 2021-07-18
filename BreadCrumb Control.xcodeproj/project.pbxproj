@@ -9,9 +9,18 @@
 /* Begin PBXBuildFile section */
 		2B3E70241F4EAD5B003ABE51 /* BreadCrumbControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */; };
 		2B3E70251F4EAD5B003ABE51 /* BreadCrumbControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2B3E702D1F4EAD9A003ABE51 /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E861C0268F500967FDA /* BreadCrumb.swift */; };
-		2B3E702E1F4EAD9D003ABE51 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E871C0268F500967FDA /* CustomButton.swift */; };
-		2B3E70331F4ED6B9003ABE51 /* BreadCrumb.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */; };
+		731188C326A3F75E00311EB8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731188BF26A3F75E00311EB8 /* CustomButton.swift */; };
+		731188C426A3F75E00311EB8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731188BF26A3F75E00311EB8 /* CustomButton.swift */; };
+		731188C526A3F75E00311EB8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731188BF26A3F75E00311EB8 /* CustomButton.swift */; };
+		731188C626A3F75E00311EB8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731188BF26A3F75E00311EB8 /* CustomButton.swift */; };
+		731188C726A3F75E00311EB8 /* BreadCrumbControl.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731188C126A3F75E00311EB8 /* BreadCrumbControl.xcassets */; };
+		731188C826A3F75E00311EB8 /* BreadCrumbControl.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731188C126A3F75E00311EB8 /* BreadCrumbControl.xcassets */; };
+		731188C926A3F75E00311EB8 /* BreadCrumbControl.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731188C126A3F75E00311EB8 /* BreadCrumbControl.xcassets */; };
+		731188CA26A3F75E00311EB8 /* BreadCrumbControl.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731188C126A3F75E00311EB8 /* BreadCrumbControl.xcassets */; };
+		731188CB26A3F75E00311EB8 /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731188C226A3F75E00311EB8 /* BreadCrumb.swift */; };
+		731188CC26A3F75E00311EB8 /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731188C226A3F75E00311EB8 /* BreadCrumb.swift */; };
+		731188CD26A3F75E00311EB8 /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731188C226A3F75E00311EB8 /* BreadCrumb.swift */; };
+		731188CE26A3F75E00311EB8 /* BreadCrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731188C226A3F75E00311EB8 /* BreadCrumb.swift */; };
 		D01F2E551C02667900967FDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E541C02667900967FDA /* AppDelegate.swift */; };
 		D01F2E571C02667900967FDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01F2E561C02667900967FDA /* ViewController.swift */; };
 		D01F2E5A1C02667900967FDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01F2E581C02667900967FDA /* Main.storyboard */; };
@@ -64,7 +73,9 @@
 /* Begin PBXFileReference section */
 		2B3E700F1F4EAD5A003ABE51 /* BreadCrumbControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BreadCrumbControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3E70121F4EAD5A003ABE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BreadCrumb.xcassets; sourceTree = "<group>"; };
+		731188BF26A3F75E00311EB8 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		731188C126A3F75E00311EB8 /* BreadCrumbControl.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BreadCrumbControl.xcassets; sourceTree = "<group>"; };
+		731188C226A3F75E00311EB8 /* BreadCrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadCrumb.swift; sourceTree = "<group>"; };
 		D01F2E511C02667900967FDA /* BreadCrumb Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BreadCrumb Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01F2E541C02667900967FDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D01F2E561C02667900967FDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,8 +89,6 @@
 		D01F2E731C02667900967FDA /* BreadCrumb ControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BreadCrumb ControlUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01F2E771C02667900967FDA /* BreadCrumb_ControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadCrumb_ControlUITests.swift; sourceTree = "<group>"; };
 		D01F2E791C02667900967FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D01F2E861C0268F500967FDA /* BreadCrumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreadCrumb.swift; path = "BreadCrumb Control/BreadCrumb.swift"; sourceTree = "<group>"; };
-		D01F2E871C0268F500967FDA /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = "BreadCrumb Control/CustomButton.swift"; sourceTree = "<group>"; };
 		D091D2231C078CB800561376 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		D091D2251C079C7400561376 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,9 +134,36 @@
 			path = "BreadCrumbControl-iOS";
 			sourceTree = "<group>";
 		};
+		731188BD26A3F75E00311EB8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				731188BE26A3F75E00311EB8 /* BreadCrumbControl */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		731188BE26A3F75E00311EB8 /* BreadCrumbControl */ = {
+			isa = PBXGroup;
+			children = (
+				731188BF26A3F75E00311EB8 /* CustomButton.swift */,
+				731188C026A3F75E00311EB8 /* Resources */,
+				731188C226A3F75E00311EB8 /* BreadCrumb.swift */,
+			);
+			path = BreadCrumbControl;
+			sourceTree = "<group>";
+		};
+		731188C026A3F75E00311EB8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				731188C126A3F75E00311EB8 /* BreadCrumbControl.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D01F2E481C02667900967FDA = {
 			isa = PBXGroup;
 			children = (
+				731188BD26A3F75E00311EB8 /* Sources */,
 				D01F2E531C02667900967FDA /* BreadCrumb Control */,
 				D01F2E6B1C02667900967FDA /* BreadCrumb ControlTests */,
 				D01F2E761C02667900967FDA /* BreadCrumb ControlUITests */,
@@ -152,7 +188,6 @@
 			children = (
 				D091D2251C079C7400561376 /* colorPalette.plist */,
 				D091D2231C078CB800561376 /* ColorPickerViewController.swift */,
-				D01F2E851C02681900967FDA /* BreadCrumb Control */,
 				D01F2E541C02667900967FDA /* AppDelegate.swift */,
 				D01F2E561C02667900967FDA /* ViewController.swift */,
 				D01F2E581C02667900967FDA /* Main.storyboard */,
@@ -179,16 +214,6 @@
 				D01F2E791C02667900967FDA /* Info.plist */,
 			);
 			path = "BreadCrumb ControlUITests";
-			sourceTree = "<group>";
-		};
-		D01F2E851C02681900967FDA /* BreadCrumb Control */ = {
-			isa = PBXGroup;
-			children = (
-				D01F2E861C0268F500967FDA /* BreadCrumb.swift */,
-				D01F2E871C0268F500967FDA /* CustomButton.swift */,
-				73A694761E2C8936005B5F3B /* BreadCrumb.xcassets */,
-			);
-			name = "BreadCrumb Control";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +262,8 @@
 				2B3E70231F4EAD5B003ABE51 /* PBXTargetDependency */,
 			);
 			name = "BreadCrumb Control";
+			packageProductDependencies = (
+			);
 			productName = "BreadCrumb Control";
 			productReference = D01F2E511C02667900967FDA /* BreadCrumb Control.app */;
 			productType = "com.apple.product-type.application";
@@ -294,7 +321,9 @@
 					};
 					D01F2E501C02667900967FDA = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 4AG35726B6;
 						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
 					};
 					D01F2E671C02667900967FDA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -317,6 +346,8 @@
 				Base,
 			);
 			mainGroup = D01F2E481C02667900967FDA;
+			packageReferences = (
+			);
 			productRefGroup = D01F2E521C02667900967FDA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -334,7 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B3E70331F4ED6B9003ABE51 /* BreadCrumb.xcassets in Resources */,
+				731188C826A3F75E00311EB8 /* BreadCrumbControl.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731188C726A3F75E00311EB8 /* BreadCrumbControl.xcassets in Resources */,
 				D091D2261C079C7400561376 /* colorPalette.plist in Resources */,
 				D01F2E621C02667900967FDA /* LaunchScreen.storyboard in Resources */,
 				D01F2E5F1C02667900967FDA /* Assets.xcassets in Resources */,
@@ -353,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731188C926A3F75E00311EB8 /* BreadCrumbControl.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731188CA26A3F75E00311EB8 /* BreadCrumbControl.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,8 +404,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B3E702E1F4EAD9D003ABE51 /* CustomButton.swift in Sources */,
-				2B3E702D1F4EAD9A003ABE51 /* BreadCrumb.swift in Sources */,
+				731188CC26A3F75E00311EB8 /* BreadCrumb.swift in Sources */,
+				731188C426A3F75E00311EB8 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +413,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731188C326A3F75E00311EB8 /* CustomButton.swift in Sources */,
+				731188CB26A3F75E00311EB8 /* BreadCrumb.swift in Sources */,
 				D01F2E571C02667900967FDA /* ViewController.swift in Sources */,
 				D01F2E551C02667900967FDA /* AppDelegate.swift in Sources */,
 				D091D2241C078CB800561376 /* ColorPickerViewController.swift in Sources */,
@@ -389,6 +425,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731188C526A3F75E00311EB8 /* CustomButton.swift in Sources */,
+				731188CD26A3F75E00311EB8 /* BreadCrumb.swift in Sources */,
 				D01F2E6D1C02667900967FDA /* BreadCrumb_ControlTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +435,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731188C626A3F75E00311EB8 /* CustomButton.swift in Sources */,
+				731188CE26A3F75E00311EB8 /* BreadCrumb.swift in Sources */,
 				D01F2E781C02667900967FDA /* BreadCrumb_ControlUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,11 +648,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4AG35726B6;
 				INFOPLIST_FILE = "BreadCrumb Control/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-Control";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onefatgiraffe.bread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -623,11 +667,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4AG35726B6;
 				INFOPLIST_FILE = "BreadCrumb Control/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "App.Develop.PK.BreadCrumb-Control";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onefatgiraffe.bread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

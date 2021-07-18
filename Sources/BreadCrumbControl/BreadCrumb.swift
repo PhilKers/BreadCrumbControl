@@ -12,7 +12,7 @@ public enum StyleBreadCrumb {
     case gradientFlatStyle
 }
 
-public protocol BreadCrumbControlDelegate: class {
+public protocol BreadCrumbControlDelegate: AnyObject {
     func didTouchItem(index: Int, item: String)
     func didTouchRootButton()
 }
@@ -241,7 +241,15 @@ public class CBreadcrumbControl: UIScrollView {
     {
         let button = UIButton(type: .custom) as UIButton
         button.backgroundColor = backgroundRootButtonColor
-        guard let bgImage = UIImage(named: "button_start", in: Bundle(for: type(of: self)), compatibleWith: nil) else {
+        
+        #if SWIFT_PACKAGE
+            let resourceBundle = Bundle.module
+        #else
+            // cocoapods OR manually embedded in host app
+            let podBundleURL = Bundle(for: type(of: self)).url(forResource: "BreadCrumbControl", withExtension: "bundle"/*xcassets*/) ?? Bundle.main.bundleURL
+            let resourceBundle = Bundle(url: podBundleURL)
+        #endif
+        guard let bgImage = UIImage(named: "breadCrumb", in: resourceBundle, compatibleWith: nil) else {
             fatalError("Root button's image is not created")
         }
         button.setBackgroundImage(bgImage, for: .normal)
